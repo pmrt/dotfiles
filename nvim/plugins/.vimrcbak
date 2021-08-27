@@ -1,0 +1,60 @@
+if has("unix")
+	if empty(glob('~/.vim/autoload/plug.vim'))
+  	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	endif
+elseif has("win64") || has("win32")
+	md ~\AppData\Local\nvim\autoload
+	$uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	(New-Object Net.WebClient).DownloadFile(
+  	$uri,
+  	$ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(
+    	"~\AppData\Local\nvim\autoload\plug.vim"
+  	)
+	)
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
+call plug#end()
+
+syntax on
+filetype indent on
+filetype plugin on
+
+set nowrap
+set tabstop=2
+set colorcolumn=+1
+set textwidth=80
+set history=100
+set autoindent
+set smartindent
+
+set mouse=a
+
+set number
+
+set hlsearch
+
+"remove whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+set ignorecase
+
+colorscheme challenger_deep
+
+let g:airline_theme='minimalist'
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+let g:gitgutter_sign_column_always=1
+
+map <F12> :NERDTreeToggle<CR>
+map <leader>restart :source ~/.vimrc<CR>
+
