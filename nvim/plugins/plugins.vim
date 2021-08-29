@@ -50,6 +50,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mhinz/vim-startify'
   " Better LSPHover
   Plug 'ray-x/lsp_signature.nvim'
+  " Debugger
+  Plug 'puremourning/vimspector'
   " Themes
   "Plug 'arcticicestudio/nord-vim'
   Plug 'Pocco81/Catppuccino.nvim', {'branch': 'main'}

@@ -90,3 +90,23 @@ map <leader>r :source $HOME/.config/nvim/init.vim<CR>
 
 nmap ; ;
 nmap . .
+
+" Debugger
+function s:InputInspectorWatch()
+  call inputsave()
+  let g:iwatch = input("Watch expression: ")
+  call inputrestore()
+endfunction
+
+nmap <leader>dh <Plug>VimspectorBalloonEval
+xmap <leader>dh <Plug>VimspectorBalloonEval
+nmap <leader>dw :call <SID>InputInspectorWatch()<CR>:VimspectorWatch <C-r>=iwatch<CR><CR>
+
+nmap <F5> <Plug>VimspectorContinue
+nmap <F6> <Plug>VimspectorStepInto
+nmap <F7> <Plug>VimspectorStepOver
+nmap <F8> <Plug>VimspectorStepOut
+nmap <F9> <Plug>VimspectorToggleBreakpoint
+nmap <F10> <Plug>VimspectorToggleConditionalBreakpoint
+nmap <F11> <Plug>VimspectorStop
+nmap <F12> :VimspectorReset<CR><CR>
