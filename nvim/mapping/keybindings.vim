@@ -54,10 +54,10 @@ nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " Telescope
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>v <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>t <cmd>lua require('telescope.builtin').help_tags()<cr>
 " Fzf
 "map <leader>f :Files<CR>
 "map <leader>b :Buffers<CR>
@@ -66,15 +66,15 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 "nnoremap <leader>m :Marks<CR>
 "tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
-" Insert line without entering insert mode and without moving cursor
-"nnoremap Ø :set paste<CR>m`O<Esc>``:set nopaste<CR>
-"nnoremap ø :set paste<CR>m`o<Esc>``:set nopaste<CR>
 " o with a blank line of separation
 " ø = alt + o (macos)
 inoremap Ø <C-o>O
 nnoremap Ø O<Esc>O
 nnoremap ø o<Esc>o
 inoremap ø <C-o>o
+" insert a blank line without entering insert mode
+nmap oo o<Esc>k
+nmap OO O<Esc>j
 
 " Paste with a blank line of separation
 " π = alt + p (macos)
@@ -86,7 +86,7 @@ nnoremap ¬ :nohl<CR>
 
 map <F1> :NERDTreeToggle<CR>
 "map <leader>r :source $MYVIMRC<CR> <bar> :AirlineToggle<CR> <bar> :AirlineToggle<CR>
-map <leader>r :source $HOME/.config/nvim/init.vim<CR>
+nmap <leader>r :source $HOME/.config/nvim/init.vim<CR>
 
 nmap ; ;
 nmap . .
@@ -99,7 +99,7 @@ function s:InputInspectorWatch()
 endfunction
 
 nmap <leader>dh <Plug>VimspectorBalloonEval
-xmap <leader>dh <Plug>VimspectorBalloonEval
+"xmap <leader>dh <Plug>VimspectorBalloonEval
 nmap <leader>dw :call <SID>InputInspectorWatch()<CR>:VimspectorWatch <C-r>=iwatch<CR><CR>
 
 nmap <F5> <Plug>VimspectorContinue
