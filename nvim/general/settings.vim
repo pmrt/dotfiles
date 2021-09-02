@@ -44,7 +44,7 @@ set background=dark "Informs vim about bg color
 set nobackup
 set nowritebackup
 set updatetime=300 "Faster autocompletion
-set timeoutlen=500 "Time in milliseconds to wait for a mapped sequence to complete.
+set timeoutlen=150 "Time in milliseconds to wait for a mapped sequence to complete.
 set clipboard=unnamedplus "Sync system clipboard and vim clipboard
 "set autochdir "Set working dir the same as the file
 set termguicolors
