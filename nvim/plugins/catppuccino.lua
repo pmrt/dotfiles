@@ -23,8 +23,8 @@ catppuccino.setup(
 					information = "italic"
 				}
 			},
-			lsp_trouble = false,
-			lsp_saga = false,
+			lsp_trouble = true,
+			lsp_saga = true,
 			gitgutter = false,
 			gitsigns = false,
 			telescope = true,

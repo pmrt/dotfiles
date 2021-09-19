@@ -18,10 +18,16 @@ endif
 call plug#begin('~/.config/nvim/plugged')
   " Better syntax support
   Plug 'sheerun/vim-polyglot'
+  " Md previewer (basic, inside nvim)
+  Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
+  " Md previewer (advanced, browser based)
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
   " File explorer
   Plug 'scrooloose/nerdtree'
   " Auto closing (, {. [
   Plug 'jiangmiao/auto-pairs'
+  " For changing closures (, <, etc.
+  Plug 'tpope/vim-surround'
   " Vim & tmux
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'scrooloose/nerdcommenter'

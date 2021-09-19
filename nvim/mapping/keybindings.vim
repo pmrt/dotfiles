@@ -1,10 +1,21 @@
-" Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
+" Easy esc
 inoremap kj <Esc>
+" Center cursor in these navigating op.
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap ]c ]czz
+nnoremap [c [czz
+nnoremap { {zz
+nnoremap } }zz
+nnoremap ]} ]}zz
+nnoremap [{ [{zz
+nnoremap [( [(zz
+nnoremap ]) ])zz
+nnoremap ]] ]]zz
+nnoremap [[ [[zz
 
-" Easy CAPS
+"Easy CAPS
+nnoremap <c-u> viwU<Esc>
 nnoremap <c-u> viwU<Esc>
 
 " Undo in insert mode
@@ -21,8 +32,6 @@ nnoremap <C-s> :w<CR>
 " Alternate way to quit
 nnoremap <C-Q> <ESC>:wq!<CR>
 nnoremap <C-Q> :wq!<CR>
-" Use control-c instead of escape
-nnoremap <C-c> <Esc>
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? ("\<C-n>") : ("\<TAB>")
 

@@ -1,7 +1,5 @@
 "leader key
 let g:mapleader = "\<Space>"
-"colorscheme nord
-"let g:airline_theme='nord'
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
@@ -11,6 +9,8 @@ filetype on
 filetype indent on
 filetype plugin on
 
+"Stop syntax coloring at col=128, so it slows down less
+set synmaxcol=128
 set hidden "When editing a unsaved file 'A', if a file 'B' is opened, hide
 "buffer of 'A' instead of asking for saving and closing 'A'
 set ignorecase "Ignore case by default for searches
@@ -35,23 +35,30 @@ set ruler "Always show cursorj
 set iskeyword+=- "Kebab case words will be act as single word
 set splitbelow "Horizontal split below
 set splitright "Vertical split right
-set t_Co=256 "Support 256 colors
 set conceallevel=0 "Don't hide ` symbol in markdown
 set laststatus=2 "Always show status line
 set cursorline "Highlight current line
-set background=dark "Informs vim about bg color
 "set showtabline=2 "Always show tabs
 set nobackup
 set nowritebackup
 set updatetime=300 "Faster autocompletion
-set timeoutlen=150 "Time in milliseconds to wait for a mapped sequence to complete.
+set timeoutlen=250 "Time in milliseconds to wait for a mapped sequence to complete.
 set clipboard=unnamedplus "Sync system clipboard and vim clipboard
 "set autochdir "Set working dir the same as the file
-set termguicolors
 "au! BufWritePost $MYVIMRC source %      auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+"
 
+set t_Co=256 "Support 256 colors
+
+"24 bit color support
+set termguicolors
+
+set background=dark "Informs vim about bg color
 "remove whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+augroup RemoveWhitespaceOnSave
+  autocmd!
+  autocmd BufWritePre * :%s/\s\+$//e
+augroup END
 "w!! command to write with sudo permissions
 cmap w!! w !sudo tee %
 
@@ -82,7 +89,10 @@ function! LoadMainNodeModule(fname)
         return nodeModules . a:fname
     endif
 endfunction
-autocmd FileType javascript,javascriptreact,typescript,typescriptreact set includeexpr=LoadMainNodeModule(v:fname)
+augroup LoadNodeModules
+  autocmd!
+  autocmd FileType javascript,javascriptreact,typescript,typescriptreact set includeexpr=LoadMainNodeModule(v:fname)
+augroup END
 
 " For golang files, order imports when saving
 lua <<EOF
@@ -116,6 +126,21 @@ lua <<EOF
     end
   end
 EOF
-autocmd BufWritePre *.go lua goimports(1000)
-" For go files, CTRL+o
-autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
+augroup BetterGoLinting
+  autocmd!
+  autocmd BufWritePre *.go lua goimports(1000)
+  " For go files, CTRL+o
+  autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
+augroup END
+
+" Resize windows when vim is resized
+augroup VimResize
+  autocmd!
+  autocmd VimResized * wincmd =
+augroup END
+
+" WrapLine in some filetypes like json (no multiline string allowed there)
+augroup WrapLineInSomeFiletypes
+  autocmd!
+  autocmd FileType json setlocal wrap
+augroup END
