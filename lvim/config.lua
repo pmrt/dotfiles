@@ -1,0 +1,296 @@
+-- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+lvim.builtin.bufferline.active = false
+vim.cmd [[ set showtabline=0 ]]
+
+-- general
+lvim.format_on_save = true
+lvim.lint_on_save = true
+
+-- keymappings [view all the defaults by pressing <leader>Lk]
+lvim.leader = "space"
+-- add your own keymapping
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+
+vim.api.nvim_exec(
+[[
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+]],
+false)
+
+-- Remove
+lvim.keys.insert_mode["jj"] = nil
+
+-- Center cursor when navigating
+lvim.keys.normal_mode["n"] = "nzz"
+lvim.keys.normal_mode["N"] = "Nzz"
+lvim.keys.normal_mode["]c"] = "]czz"
+lvim.keys.normal_mode["]C"] = "]Czz"
+lvim.keys.normal_mode["}"] = "}zz"
+lvim.keys.normal_mode["{"] = "{zz"
+lvim.keys.normal_mode["]}"] = "]}zz"
+lvim.keys.normal_mode["]{"] = "]{zz"
+lvim.keys.normal_mode["])"] = "])zz"
+lvim.keys.normal_mode["]("] = "](zz"
+lvim.keys.normal_mode["]]"] = "]]zz"
+lvim.keys.normal_mode["[["] = "[[zz"
+lvim.keys.normal_mode["]]"] = "]]zz"
+
+-- vim.cmd("nnoremap <silent> oo o<Esc>k")
+-- lvim.keys.normal_mode["oo"] = "o<Esc>k"
+lvim.keys.normal_mode["OO"] = "O<Esc>j"
+lvim.keys.normal_mode["oo"] = "o<Esc>k"
+
+lvim.builtin.which_key.mappings["v"] = { "<cmd>Telescope live_grep<CR>", "Live grep" }
+lvim.builtin.which_key.mappings["q"] = { ":wq<CR>", "Save and quit" }
+lvim.builtin.which_key.setup.ignore_missing = true
+
+-- unmap a default keymapping
+-- lvim.keys.normal_mode["<C-Up>"] = ""
+-- edit a default keymapping
+-- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+
+-- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
+-- lvim.builtin.telescope.on_config_done = function()
+--   local actions = require "telescope.actions"
+--   -- for input mode
+--   lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
+--   lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
+--   lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
+--   lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
+--   -- for normal mode
+--   lvim.builtin.telescope.defaults.mappings.n["<C-j>"] = actions.move_selection_next
+--   lvim.builtin.telescope.defaults.mappings.n["<C-k>"] = actions.move_selection_previous
+-- end
+
+-- Use which-key to add extra bindings with the leader-key prefix
+-- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+-- lvim.builtin.which_key.mappings["t"] = {
+--   name = "+Trouble",
+--   r = { "<cmd>Trouble lsp_references<cr>", "References" },
+--   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+--   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnosticss" },
+--   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+--   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+--   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
+-- }
+
+-- TODO: User Config for predefined plugins
+-- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.side = "left"
+lvim.builtin.nvimtree.show_icons.git = 0
+
+-- startify
+vim.g.startify_custom_header = ""
+vim.g.startify_session_dir = "~/config/lvim/session"
+vim.g.startify_session_autoload = 1
+vim.g.startify_session_delete_buffers = 1
+vim.g.startify_session_persistence = 1
+vim.g.startify_change_to_vcs_root = 1
+vim.g.startify_fortune_use_unidecode = 1
+vim.g.startify_enable_special = 1
+vim.g.startify_lists = {
+  { type = "sessions", header = { "     Sessions"} },
+  { type = "bookmarks", header = { "     Bookmarks"} },
+  { type = "files", header = { "     Files"} },
+}
+vim.g.startify_bookmarks = {
+  { c = "~/.config/lvim/config.lua" },
+}
+
+-- if you don't want all the parsers change this to a table of the ones you want
+lvim.builtin.treesitter.ensure_installed = {}
+lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.highlight.enabled = true
+
+-- generic LSP settings
+-- you can set a custom on_attach function that will be used for all the language servers
+-- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
+-- lvim.lsp.on_attach_callback = function(client, bufnr)
+--   local function buf_set_option(...)
+--     vim.api.nvim_buf_set_option(bufnr, ...)
+--   end
+--   --Enable completion triggered by <c-x><c-o>
+--   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+-- end
+-- you can overwrite the null_ls setup table (useful for setting the root_dir function)
+-- lvim.lsp.null_ls.setup = {
+--   root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
+-- }
+-- or if you need something more advanced
+-- lvim.lsp.null_ls.setup.root_dir = function(fname)
+--   if vim.bo.filetype == "javascript" then
+--     return require("lspconfig/util").root_pattern("Makefile", ".git", "node_modules")(fname)
+--       or require("lspconfig/util").path.dirname(fname)
+--   elseif vim.bo.filetype == "php" then
+--     return require("lspconfig/util").root_pattern("Makefile", ".git", "composer.json")(fname) or vim.fn.getcwd()
+--   else
+--     return require("lspconfig/util").root_pattern("Makefile", ".git")(fname) or require("lspconfig/util").path.dirname(fname)
+--   end
+-- end
+
+-- set a formatter if you want to override the default lsp one (if it exists)
+-- lvim.lang.python.formatters = {
+--   {
+--     exe = "black",
+--     args = {}
+--   }
+-- }
+-- set an additional linter
+-- lvim.lang.python.linters = {
+--   {
+--     exe = "flake8",
+--     args = {}
+--   }
+-- }
+lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.options = {
+  icons_enabled = 1,
+  theme = "horizon"
+}
+
+-- Additional Plugins
+-- lvim.plugins = {
+--     {"folke/tokyonight.nvim"}, {
+--         "ray-x/lsp_signature.nvim",
+--         config = function() require"lsp_signature".on_attach() end,
+--         event = "InsertEnter"
+--     }
+-- }
+lvim.plugins = {
+  {
+    "mhinz/vim-startify"
+  },
+
+  {
+    "ggandor/lightspeed.nvim",
+    event = "BufRead",
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({ "*" }, {
+        RGB = true, -- #RGB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+      })
+    end,
+  },
+
+  {
+    "tpope/vim-surround",
+    keys = {"c", "d", "y"}
+  },
+
+  {
+    "tpope/vim-fugitive",
+    cmd = {
+      "G",
+      "Git",
+      "Gdiffsplit",
+      "Gread",
+      "Gwrite",
+      "Ggrep",
+      "GMove",
+      "GDelete",
+      "GBrowse",
+      "GRemove",
+      "GRename",
+      "Glgrep",
+      "Gedit"
+    },
+    ft = {"fugitive"}
+  },
+
+  {
+    "Pocco81/Catppuccino.nvim",
+    config = function ()
+      local catppuccino = require("catppuccino")
+
+      catppuccino.setup(
+        {
+          colorscheme = "neon_latte",
+          transparency = false,
+          term_colors = true,
+          styles = {
+            comments = "italic",
+            functions = "italic",
+            keywords = "italic",
+            strings = "NONE",
+            variables = "NONE",
+          },
+          integrations = {
+            treesitter = true,
+            native_lsp = {
+              enabled = true,
+              virtual_text = {
+                errors = "italic",
+                hints = "italic",
+                warnings = "italic",
+                information = "italic",
+              },
+              underlines = {
+                errors = "underline",
+                hints = "underline",
+                warnings = "underline",
+                information = "underline",
+              }
+            },
+            lsp_trouble = false,
+            lsp_saga = false,
+            gitgutter = false,
+            gitsigns = false,
+            telescope = true,
+            nvimtree = {
+              enabled = false,
+              show_root = false,
+            },
+            which_key = true,
+            indent_blankline = {
+              enabled = false,
+              colored_indent_levels = false,
+            },
+            dashboard = false,
+            neogit = false,
+            vim_sneak = false,
+            fern = false,
+            barbar = false,
+            bufferline = false,
+            markdown = false,
+            lightspeed = true,
+            ts_rainbow = false,
+            hop = false,
+          }
+        }
+      )
+
+      catppuccino.load()
+    end
+  },
+}
+
+
+-- Autocommands (https://neovim.io/doc/user/autocmd.html)
+-- lvim.autocommands.custom_groups = {
+--   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+-- }
+lvim.autocommands.custom_groups = {
+  { "Filetype", "json", "setlocal wrap" },
+}
