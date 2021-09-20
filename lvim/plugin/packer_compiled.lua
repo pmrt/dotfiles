@@ -70,7 +70,7 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["Catppuccino.nvim"] = {
-    config = { "\27LJ\2\n‹\5\0\0\a\0\19\0\0236\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0005\4\4\0=\4\5\0035\4\6\0005\5\a\0005\6\b\0=\6\t\0055\6\n\0=\6\v\5=\5\f\0045\5\r\0=\5\14\0045\5\15\0=\5\16\4=\4\17\3B\1\2\0019\1\18\0B\1\1\1K\0\1\0\tload\17integrations\21indent_blankline\1\0\2\fenabled\1\26colored_indent_levels\1\rnvimtree\1\0\2\fenabled\1\14show_root\1\15native_lsp\15underlines\1\0\4\nhints\14underline\verrors\14underline\16information\14underline\rwarnings\14underline\17virtual_text\1\0\4\nhints\vitalic\verrors\vitalic\16information\vitalic\rwarnings\vitalic\1\0\1\fenabled\2\1\0\17\14dashboard\1\rmarkdown\1\15lightspeed\2\bhop\1\15treesitter\2\15ts_rainbow\1\vbarbar\1\tfern\1\14vim_sneak\1\vneogit\1\14gitgutter\1\rlsp_saga\1\16lsp_trouble\1\15bufferline\1\rgitsigns\1\14which_key\2\14telescope\2\vstyles\1\0\5\14variables\tNONE\rcomments\vitalic\fstrings\tNONE\rkeywords\vitalic\14functions\vitalic\1\0\3\17transparency\1\16colorscheme\15neon_latte\16term_colors\2\nsetup\16catppuccino\frequire\0" },
+    config = { "\27LJ\2\n‹\5\0\0\a\0\19\0\0236\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0005\4\4\0=\4\5\0035\4\6\0005\5\a\0005\6\b\0=\6\t\0055\6\n\0=\6\v\5=\5\f\0045\5\r\0=\5\14\0045\5\15\0=\5\16\4=\4\17\3B\1\2\0019\1\18\0B\1\1\1K\0\1\0\tload\17integrations\21indent_blankline\1\0\2\26colored_indent_levels\1\fenabled\1\rnvimtree\1\0\2\14show_root\1\fenabled\1\15native_lsp\15underlines\1\0\4\verrors\14underline\16information\14underline\rwarnings\14underline\nhints\14underline\17virtual_text\1\0\4\verrors\vitalic\16information\vitalic\rwarnings\vitalic\nhints\vitalic\1\0\1\fenabled\2\1\0\17\rgitsigns\1\vbarbar\1\14dashboard\1\14which_key\2\15treesitter\2\15bufferline\1\bhop\1\15ts_rainbow\1\14telescope\2\tfern\1\14vim_sneak\1\vneogit\1\14gitgutter\1\rlsp_saga\1\16lsp_trouble\1\rmarkdown\1\15lightspeed\2\vstyles\1\0\5\rkeywords\vitalic\14variables\tNONE\fstrings\tNONE\rcomments\vitalic\14functions\vitalic\1\0\3\16colorscheme\15neon_latte\16term_colors\2\17transparency\1\nsetup\16catppuccino\frequire\0" },
     loaded = true,
     path = "/Users/pj/.local/share/lunarvim/site/pack/packer/start/Catppuccino.nvim"
   },
@@ -143,7 +143,7 @@ _G.packer_plugins = {
     only_config = true
   },
   ["nvim-colorizer.lua"] = {
-    config = { "\27LJ\2\n|\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\a\bcss\2\vcss_fn\2\vhsl_fn\2\vrgb_fn\2\rRRGGBBAA\2\vRRGGBB\2\bRGB\2\1\2\0\0\6*\nsetup\14colorizer\frequire\0" },
+    config = { "\27LJ\2\n|\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\a\vRRGGBB\2\bRGB\2\bcss\2\vcss_fn\2\vhsl_fn\2\vrgb_fn\2\rRRGGBBAA\2\1\2\0\0\6*\nsetup\14colorizer\frequire\0" },
     loaded = true,
     path = "/Users/pj/.local/share/lunarvim/site/pack/packer/start/nvim-colorizer.lua"
   },
@@ -236,13 +236,9 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17core.project\frequire\0", "config", "project.nvim")
-time([[Config for project.nvim]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\n|\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\a\bcss\2\vcss_fn\2\vhsl_fn\2\vrgb_fn\2\rRRGGBBAA\2\vRRGGBB\2\bRGB\2\1\2\0\0\6*\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+try_loadstring("\27LJ\2\n|\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\a\vRRGGBB\2\bRGB\2\bcss\2\vcss_fn\2\vhsl_fn\2\vrgb_fn\2\rRRGGBBAA\2\1\2\0\0\6*\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
 time([[Config for nvim-colorizer.lua]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
@@ -256,24 +252,26 @@ time([[Config for telescope.nvim]], false)
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18core.nvimtree\frequire\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
+-- Config for: Catppuccino.nvim
+time([[Config for Catppuccino.nvim]], true)
+try_loadstring("\27LJ\2\n‹\5\0\0\a\0\19\0\0236\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0005\4\4\0=\4\5\0035\4\6\0005\5\a\0005\6\b\0=\6\t\0055\6\n\0=\6\v\5=\5\f\0045\5\r\0=\5\14\0045\5\15\0=\5\16\4=\4\17\3B\1\2\0019\1\18\0B\1\1\1K\0\1\0\tload\17integrations\21indent_blankline\1\0\2\26colored_indent_levels\1\fenabled\1\rnvimtree\1\0\2\14show_root\1\fenabled\1\15native_lsp\15underlines\1\0\4\verrors\14underline\16information\14underline\rwarnings\14underline\nhints\14underline\17virtual_text\1\0\4\verrors\vitalic\16information\vitalic\rwarnings\vitalic\nhints\vitalic\1\0\1\fenabled\2\1\0\17\rgitsigns\1\vbarbar\1\14dashboard\1\14which_key\2\15treesitter\2\15bufferline\1\bhop\1\15ts_rainbow\1\14telescope\2\tfern\1\14vim_sneak\1\vneogit\1\14gitgutter\1\rlsp_saga\1\16lsp_trouble\1\rmarkdown\1\15lightspeed\2\vstyles\1\0\5\rkeywords\vitalic\14variables\tNONE\fstrings\tNONE\rcomments\vitalic\14functions\vitalic\1\0\3\16colorscheme\15neon_latte\16term_colors\2\17transparency\1\nsetup\16catppuccino\frequire\0", "config", "Catppuccino.nvim")
+time([[Config for Catppuccino.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rcore.cmp\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
--- Config for: Catppuccino.nvim
-time([[Config for Catppuccino.nvim]], true)
-try_loadstring("\27LJ\2\n‹\5\0\0\a\0\19\0\0236\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0005\4\4\0=\4\5\0035\4\6\0005\5\a\0005\6\b\0=\6\t\0055\6\n\0=\6\v\5=\5\f\0045\5\r\0=\5\14\0045\5\15\0=\5\16\4=\4\17\3B\1\2\0019\1\18\0B\1\1\1K\0\1\0\tload\17integrations\21indent_blankline\1\0\2\fenabled\1\26colored_indent_levels\1\rnvimtree\1\0\2\fenabled\1\14show_root\1\15native_lsp\15underlines\1\0\4\nhints\14underline\verrors\14underline\16information\14underline\rwarnings\14underline\17virtual_text\1\0\4\nhints\vitalic\verrors\vitalic\16information\vitalic\rwarnings\vitalic\1\0\1\fenabled\2\1\0\17\14dashboard\1\rmarkdown\1\15lightspeed\2\bhop\1\15treesitter\2\15ts_rainbow\1\vbarbar\1\tfern\1\14vim_sneak\1\vneogit\1\14gitgutter\1\rlsp_saga\1\16lsp_trouble\1\15bufferline\1\rgitsigns\1\14which_key\2\14telescope\2\vstyles\1\0\5\14variables\tNONE\rcomments\vitalic\fstrings\tNONE\rkeywords\vitalic\14functions\vitalic\1\0\3\17transparency\1\16colorscheme\15neon_latte\16term_colors\2\nsetup\16catppuccino\frequire\0", "config", "Catppuccino.nvim")
-time([[Config for Catppuccino.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20core.treesitter\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17core.project\frequire\0", "config", "project.nvim")
+time([[Config for project.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Gdiffsplit lua require("packer.load")({'vim-fugitive'}, { cmd = "Gdiffsplit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Gread lua require("packer.load")({'vim-fugitive'}, { cmd = "Gread", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Gwrite lua require("packer.load")({'vim-fugitive'}, { cmd = "Gwrite", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Git lua require("packer.load")({'vim-fugitive'}, { cmd = "Git", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Ggrep lua require("packer.load")({'vim-fugitive'}, { cmd = "Ggrep", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file GMove lua require("packer.load")({'vim-fugitive'}, { cmd = "GMove", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file GDelete lua require("packer.load")({'vim-fugitive'}, { cmd = "GDelete", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
@@ -281,9 +279,11 @@ pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file GBrowse lua requir
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file GRemove lua require("packer.load")({'vim-fugitive'}, { cmd = "GRemove", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file GRename lua require("packer.load")({'vim-fugitive'}, { cmd = "GRename", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Glgrep lua require("packer.load")({'vim-fugitive'}, { cmd = "Glgrep", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Git lua require("packer.load")({'vim-fugitive'}, { cmd = "Git", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file G lua require("packer.load")({'vim-fugitive'}, { cmd = "G", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Gedit lua require("packer.load")({'vim-fugitive'}, { cmd = "Gedit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file G lua require("packer.load")({'vim-fugitive'}, { cmd = "G", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Gwrite lua require("packer.load")({'vim-fugitive'}, { cmd = "Gwrite", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Gdiffsplit lua require("packer.load")({'vim-fugitive'}, { cmd = "Gdiffsplit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Gread lua require("packer.load")({'vim-fugitive'}, { cmd = "Gread", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
@@ -303,8 +303,8 @@ time([[Defining lazy-load filetype autocommands]], false)
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-comment', 'gitsigns.nvim', 'lightspeed.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-lspinstall'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-ts-autotag'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'toggleterm.nvim', 'which-key.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-ts-autotag'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]

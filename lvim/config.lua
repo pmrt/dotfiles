@@ -100,6 +100,8 @@ vim.g.startify_lists = {
 }
 vim.g.startify_bookmarks = {
   { c = "~/.config/lvim/config.lua" },
+  { p = "~/Documents/Projects/portfolio_v2" },
+  { l = "~/Documents/Projects/booklog" },
 }
 
 -- if you don't want all the parsers change this to a table of the ones you want
