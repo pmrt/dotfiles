@@ -9,5 +9,12 @@ wireshark/*
 yarn/*
 nvim/plugged/*
 nvim/session/*
+tmux/resurrect
+tmux/plugins
+tmux/Session.vim
+Session.vim
+lazygit/.config
+lazygit/state.yml
+
 lvim/plugin/packer_compiled.lua
 lvim/plugin/packer_compiled.lua
