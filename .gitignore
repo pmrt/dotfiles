@@ -9,3 +9,5 @@ wireshark/*
 yarn/*
 nvim/plugged/*
 nvim/session/*
+lvim/plugin/packer_compiled.lua
+lvim/plugin/packer_compiled.lua
