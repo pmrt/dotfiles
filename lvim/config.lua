@@ -1,6 +1,7 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 lvim.builtin.bufferline.active = false
 vim.cmd [[ set showtabline=0 ]]
+vim.cmd [[ set cmdheight=1 ]]
 
 -- general
 lvim.format_on_save = true
@@ -21,7 +22,6 @@ endif
 ]],
 false)
 
--- Remove
 lvim.keys.insert_mode["jj"] = nil
 
 -- Center cursor when navigating
@@ -86,10 +86,10 @@ lvim.builtin.nvimtree.show_icons.git = 0
 
 -- startify
 vim.g.startify_custom_header = ""
-vim.g.startify_session_dir = "~/config/lvim/session"
-vim.g.startify_session_autoload = 1
+-- vim.g.startify_session_dir = "~/config/lvim/session"
+vim.g.startify_session_autoload = 0
 vim.g.startify_session_delete_buffers = 1
-vim.g.startify_session_persistence = 1
+vim.g.startify_session_persistence = 0
 vim.g.startify_change_to_vcs_root = 1
 vim.g.startify_fortune_use_unidecode = 1
 vim.g.startify_enable_special = 1
@@ -166,6 +166,10 @@ lvim.builtin.lualine.options = {
 lvim.plugins = {
   {
     "mhinz/vim-startify"
+  },
+
+  {
+    "tpope/vim-obsession",
   },
 
   {
@@ -288,7 +292,6 @@ lvim.plugins = {
   },
 }
 
-
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
@@ -296,3 +299,13 @@ lvim.plugins = {
 lvim.autocommands.custom_groups = {
   { "Filetype", "json", "setlocal wrap" },
 }
+
+-- Start Obsession automatically.
+vim.api.nvim_exec(
+[[
+  augroup ObsessionGroup
+    autocmd!
+    autocmd VimEnter * nested if !&modified && empty(v:this_session) | Obsession | echo "Recording new session" | endif
+  augroup END
+]],
+false)
