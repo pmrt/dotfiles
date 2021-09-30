@@ -10,9 +10,10 @@ lvim.lint_on_save = true
 
 -- theme config
 vim.cmd [[ set background=light ]]
-vim.g.gruvbox_material_current_word = "underline"
 vim.g.gruvbox_material_background = "soft"
+
 lvim.colorscheme = "gruvbox-material"
+-- vim.cmd [[ highlight CurrentWord cterm=underline gui=underline ]]
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -116,6 +117,20 @@ lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+-- Fix: document highlight colors
+lvim.lsp.document_highlight = false
+vim.g.gruvbox_material_current_word = "underline"
+lvim.lsp.on_attach_callback = function()
+  vim.api.nvim_exec(
+  [[
+    augroup lsp_custom_document_highlight
+      autocmd! * <buffer>
+      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    augroup END
+  ]],
+  false)
+end
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
@@ -338,3 +353,4 @@ vim.api.nvim_exec(
   augroup END
 ]],
 false)
+
