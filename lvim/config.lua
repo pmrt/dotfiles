@@ -174,7 +174,7 @@ end
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options = {
   icons_enabled = 1,
-  theme = "gruvbox-material"
+  theme = "gruvbox"
 }
 
 -- Additional Plugins
