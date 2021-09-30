@@ -286,14 +286,6 @@ lvim.plugins = {
   },
 
   {
-    "morhetz/gruvbox",
-  },
-
-  {
-    "shaunsingh/nord.nvim",
-  },
-
-  {
     "rose-pine/neovim",
   },
 
