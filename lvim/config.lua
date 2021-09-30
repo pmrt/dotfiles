@@ -10,10 +10,12 @@ lvim.lint_on_save = true
 
 -- theme config
 vim.cmd [[ set background=light ]]
+-- vim.g.gruvbox_material_palette = "original"
 vim.g.gruvbox_material_background = "soft"
+vim.g.rose_pine_disable_italics = true
+vim.g.rose_pine_variant = "moon"
+lvim.colorscheme = "rose-pine"
 
-lvim.colorscheme = "gruvbox-material"
--- vim.cmd [[ highlight CurrentWord cterm=underline gui=underline ]]
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -26,6 +28,10 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+" Set empty fillchars for the empty end of buffer characters. To get rid of the
+" '~' symbols at the end of the buffer 
+let &fcs='eob: '
 ]],
 false)
 
@@ -54,6 +60,9 @@ lvim.keys.normal_mode["oo"] = "o<Esc>k"
 lvim.builtin.which_key.mappings["v"] = { "<cmd>Telescope live_grep<CR>", "Live grep" }
 lvim.builtin.which_key.mappings["q"] = { ":wq<CR>", "Save and quit" }
 lvim.builtin.which_key.setup.ignore_missing = true
+
+-- No highlight + remove from minimap
+lvim.builtin.which_key.mappings["h"] = { ":nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>", "No highlight"}
 
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
@@ -91,46 +100,25 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
--- startify
-vim.g.startify_custom_header = ""
--- vim.g.startify_session_dir = "~/config/lvim/session"
-vim.g.startify_session_autoload = 0
-vim.g.startify_session_delete_buffers = 1
-vim.g.startify_session_persistence = 0
-vim.g.startify_change_to_vcs_root = 1
-vim.g.startify_fortune_use_unidecode = 1
-vim.g.startify_enable_special = 1
-vim.g.startify_lists = {
-  { type = "sessions", header = { "     Sessions"} },
-  { type = "bookmarks", header = { "     Bookmarks"} },
-  { type = "files", header = { "     Files"} },
-}
-vim.g.startify_bookmarks = {
-  { c = "~/.config/lvim/config.lua" },
-  { p = "~/Documents/Projects/portfolio_v2" },
-  { l = "~/Documents/Projects/booklog" },
-  { f = "~/Documents/Projects/ctrlf" },
-}
-
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- Fix: document highlight colors
-lvim.lsp.document_highlight = false
-vim.g.gruvbox_material_current_word = "underline"
-lvim.lsp.on_attach_callback = function()
-  vim.api.nvim_exec(
-  [[
-    augroup lsp_custom_document_highlight
-      autocmd! * <buffer>
-      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    augroup END
-  ]],
-  false)
-end
+-- lvim.lsp.document_highlight = false
+-- vim.g.gruvbox_material_current_word = "underline"
+-- lvim.lsp.on_attach_callback = function()
+--   vim.api.nvim_exec(
+--   [[
+--     augroup lsp_custom_document_highlight
+--       autocmd! * <buffer>
+--       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+--       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+--     augroup END
+--   ]],
+--   false)
+-- end
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
@@ -174,7 +162,7 @@ end
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options = {
   icons_enabled = 1,
-  theme = "gruvbox"
+  theme = "rose-pine"
 }
 
 -- Additional Plugins
@@ -187,7 +175,43 @@ lvim.builtin.lualine.options = {
 -- }
 lvim.plugins = {
   {
-    "mhinz/vim-startify"
+    "mhinz/vim-startify",
+    config = function()
+      vim.g.startify_custom_header = ""
+      -- vim.g.startify_session_dir = "~/config/lvim/session"
+      vim.g.startify_session_autoload = 0
+      vim.g.startify_session_delete_buffers = 1
+      vim.g.startify_session_persistence = 0
+      vim.g.startify_change_to_vcs_root = 1
+      vim.g.startify_fortune_use_unidecode = 1
+      vim.g.startify_enable_special = 1
+      vim.g.startify_lists = {
+        { type = "sessions", header = { "     Sessions"} },
+        { type = "bookmarks", header = { "     Bookmarks"} },
+        { type = "files", header = { "     Files"} },
+      }
+      vim.g.startify_bookmarks = {
+        { c = "~/.config/lvim/config.lua" },
+        { p = "~/Documents/Projects/portfolio_v2" },
+        { l = "~/Documents/Projects/booklog" },
+        { f = "~/Documents/Projects/ctrlf" },
+      }
+    end
+  },
+
+  {
+    "wfxr/minimap.vim",
+    run = "cargo install --locked code-minimap",
+    config = function()
+      vim.g.minimap_auto_start = 1
+      vim.g.minimap_auto_start_win_enter = 1
+      vim.g.minimap_highlight_search = 1
+      vim.g.minimap_highlight = "Normal"
+      vim.g.minimap_base_highlight = "NonText"
+      vim.g.minimap_search_color = "WildMenu"
+      vim.g.minimap_git_colors = 1
+      vim.g.minimap_width = 3
+    end
   },
 
   {
@@ -266,6 +290,14 @@ lvim.plugins = {
   },
 
   {
+    "shaunsingh/nord.nvim",
+  },
+
+  {
+    "rose-pine/neovim",
+  },
+
+  {
     "sainnhe/gruvbox-material",
   },
 
@@ -281,8 +313,8 @@ lvim.plugins = {
 --           term_colors = true,
 --           styles = {
 --             comments = "italic",
---             functions = "italic",
---             keywords = "italic",
+--             functions = "NONE",
+--             keywords = "NONE",
 --             strings = "NONE",
 --             variables = "NONE",
 --           },
@@ -331,7 +363,7 @@ lvim.plugins = {
 --         }
 --       )
 
---       -- catppuccino.load()
+--       catppuccino.load()
 --     end
 --   },
 }
