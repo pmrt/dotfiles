@@ -2,11 +2,17 @@
 lvim.builtin.bufferline.active = false
 vim.cmd [[ set showtabline=0 ]]
 vim.cmd [[ set cmdheight=1 ]]
+vim.cmd [[ set textwidth=80 ]]
 
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
 
+-- theme config
+vim.cmd [[ set background=light ]]
+vim.g.gruvbox_material_current_word = "underline"
+vim.g.gruvbox_material_background = "soft"
+lvim.colorscheme = "gruvbox-material"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -102,6 +108,7 @@ vim.g.startify_bookmarks = {
   { c = "~/.config/lvim/config.lua" },
   { p = "~/Documents/Projects/portfolio_v2" },
   { l = "~/Documents/Projects/booklog" },
+  { f = "~/Documents/Projects/ctrlf" },
 }
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -152,7 +159,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options = {
   icons_enabled = 1,
-  theme = "horizon"
+  theme = "gruvbox-material"
 }
 
 -- Additional Plugins
@@ -166,6 +173,20 @@ lvim.builtin.lualine.options = {
 lvim.plugins = {
   {
     "mhinz/vim-startify"
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_port = '4000'
+    end,
+  },
+
+  {
+    "dkarter/bullets.vim",
   },
 
   {
@@ -226,70 +247,78 @@ lvim.plugins = {
   },
 
   {
-    "Pocco81/Catppuccino.nvim",
-    config = function ()
-      local catppuccino = require("catppuccino")
-
-      catppuccino.setup(
-        {
-          colorscheme = "neon_latte",
-          transparency = false,
-          term_colors = true,
-          styles = {
-            comments = "italic",
-            functions = "italic",
-            keywords = "italic",
-            strings = "NONE",
-            variables = "NONE",
-          },
-          integrations = {
-            treesitter = true,
-            native_lsp = {
-              enabled = true,
-              virtual_text = {
-                errors = "italic",
-                hints = "italic",
-                warnings = "italic",
-                information = "italic",
-              },
-              underlines = {
-                errors = "underline",
-                hints = "underline",
-                warnings = "underline",
-                information = "underline",
-              }
-            },
-            lsp_trouble = false,
-            lsp_saga = false,
-            gitgutter = false,
-            gitsigns = false,
-            telescope = true,
-            nvimtree = {
-              enabled = false,
-              show_root = false,
-            },
-            which_key = true,
-            indent_blankline = {
-              enabled = false,
-              colored_indent_levels = false,
-            },
-            dashboard = false,
-            neogit = false,
-            vim_sneak = false,
-            fern = false,
-            barbar = false,
-            bufferline = false,
-            markdown = false,
-            lightspeed = true,
-            ts_rainbow = false,
-            hop = false,
-          }
-        }
-      )
-
-      catppuccino.load()
-    end
+    "morhetz/gruvbox",
   },
+
+  {
+    "sainnhe/gruvbox-material",
+  },
+
+--   {
+--     "Pocco81/Catppuccino.nvim",
+--     config = function ()
+--       local catppuccino = require("catppuccino")
+
+--       catppuccino.setup(
+--         {
+--           colorscheme = "neon_latte",
+--           transparency = false,
+--           term_colors = true,
+--           styles = {
+--             comments = "italic",
+--             functions = "italic",
+--             keywords = "italic",
+--             strings = "NONE",
+--             variables = "NONE",
+--           },
+--           integrations = {
+--             treesitter = true,
+--             native_lsp = {
+--               enabled = true,
+--               virtual_text = {
+--                 errors = "italic",
+--                 hints = "italic",
+--                 warnings = "italic",
+--                 information = "italic",
+--               },
+--               underlines = {
+--                 errors = "underline",
+--                 hints = "underline",
+--                 warnings = "underline",
+--                 information = "underline",
+--               }
+--             },
+--             lsp_trouble = false,
+--             lsp_saga = false,
+--             gitgutter = false,
+--             gitsigns = true,
+--             telescope = true,
+--             nvimtree = {
+--               enabled = true,
+--               show_root = false,
+--             },
+--             which_key = true,
+--             indent_blankline = {
+--               enabled = false,
+--               colored_indent_levels = false,
+--             },
+--             dashboard = false,
+--             neogit = false,
+--             vim_sneak = false,
+--             fern = false,
+--             barbar = false,
+--             bufferline = false,
+--             markdown = true,
+--             lightspeed = true,
+--             ts_rainbow = false,
+--             hop = false,
+--           }
+--         }
+--       )
+
+--       -- catppuccino.load()
+--     end
+--   },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
