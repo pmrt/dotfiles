@@ -32,6 +32,10 @@ endif
 " Set empty fillchars for the empty end of buffer characters. To get rid of the
 " '~' symbols at the end of the buffer 
 let &fcs='eob: '
+
+" Reverse search with lightspeed (because vim-surround overwrites it and its
+" an old plugin k
+map ß <Plug>Lightspeed_S
 ]],
 false)
 
@@ -235,6 +239,11 @@ lvim.plugins = {
   {
     "ggandor/lightspeed.nvim",
     event = "BufRead",
+    config = function()
+      require("lightspeed").setup {
+        jump_to_first_match = true,
+      }
+    end
   },
 
   {
@@ -262,7 +271,7 @@ lvim.plugins = {
 
   {
     "tpope/vim-surround",
-    keys = {"c", "d", "y"}
+    keys = {"c", "d", "S"}
   },
 
   {
