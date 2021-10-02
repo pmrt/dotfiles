@@ -179,6 +179,10 @@ lvim.builtin.lualine.options = {
 -- }
 lvim.plugins = {
   {
+    "segeljakt/vim-isotope",
+  },
+
+  {
     "mhinz/vim-startify",
     config = function()
       vim.g.startify_custom_header = ""
