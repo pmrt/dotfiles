@@ -234,6 +234,9 @@ lvim.plugins = {
 
   {
     "dkarter/bullets.vim",
+    config = function()
+      vim.g.bullets_line_spacing = 2
+    end
   },
 
   {
