@@ -9,13 +9,20 @@ lvim.format_on_save = true
 lvim.lint_on_save = true
 
 -- theme config
-vim.cmd [[ set background=light ]]
--- vim.g.gruvbox_material_palette = "original"
-vim.g.gruvbox_material_background = "soft"
+vim.cmd [[ set background=dark ]]
+
+-- rose pine
 vim.g.rose_pine_disable_italics = true
 vim.g.rose_pine_variant = "moon"
-lvim.colorscheme = "rose-pine"
 
+-- everforest
+vim.g.everforest_background = "soft"
+vim.g.everforest_sign_column_background = "none"
+vim.g.everforest_show_eob = 0
+vim.g.everforest_current_word = "underline"
+vim.g.everforest_better_performance = 1
+
+lvim.colorscheme = "everforest"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -103,6 +110,7 @@ lvim.builtin.which_key.mappings["h"] = { ":nohlsearch<CR>:call minimap#vim#Clear
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.setup.open_on_setup = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
@@ -166,7 +174,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options = {
   icons_enabled = 1,
-  theme = "rose-pine"
+  theme = "everforest"
 }
 
 -- Additional Plugins
@@ -212,7 +220,7 @@ lvim.plugins = {
     run = "cargo install --locked code-minimap",
     config = function()
       vim.g.minimap_auto_start = 1
-      vim.g.minimap_auto_start_win_enter = 1
+      vim.g.minimap_auto_start_win_enter = 0
       vim.g.minimap_highlight_search = 1
       vim.g.minimap_highlight = "Normal"
       vim.g.minimap_base_highlight = "NonText"
@@ -306,7 +314,7 @@ lvim.plugins = {
   },
 
   {
-    "sainnhe/gruvbox-material",
+    "sainnhe/everforest",
   },
 
 --   {
