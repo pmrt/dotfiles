@@ -73,7 +73,7 @@ lvim.builtin.which_key.mappings["q"] = { ":wq<CR>", "Save and quit" }
 lvim.builtin.which_key.setup.ignore_missing = true
 
 -- No highlight + remove from minimap
-lvim.builtin.which_key.mappings["h"] = { ":nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>", "No highlight"}
+-- lvim.builtin.which_key.mappings["h"] = { ":nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>", "No highlight"}
 
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
@@ -216,20 +216,20 @@ lvim.plugins = {
     end
   },
 
-  {
-    "wfxr/minimap.vim",
-    run = "cargo install --locked code-minimap",
-    config = function()
-      vim.g.minimap_auto_start = 1
-      vim.g.minimap_auto_start_win_enter = 0
-      vim.g.minimap_highlight_search = 1
-      vim.g.minimap_highlight = "Normal"
-      vim.g.minimap_base_highlight = "NonText"
-      vim.g.minimap_search_color = "WildMenu"
-      vim.g.minimap_git_colors = 1
-      vim.g.minimap_width = 3
-    end
-  },
+  -- {
+  --   "wfxr/minimap.vim",
+  --   run = "cargo install --locked code-minimap",
+  --   config = function()
+  --     vim.g.minimap_auto_start = 1
+  --     vim.g.minimap_auto_start_win_enter = 0
+  --     vim.g.minimap_highlight_search = 1
+  --     vim.g.minimap_highlight = "Normal"
+  --     vim.g.minimap_base_highlight = "NonText"
+  --     vim.g.minimap_search_color = "WildMenu"
+  --     vim.g.minimap_git_colors = 1
+  --     vim.g.minimap_width = 3
+  --   end
+  -- },
 
   {
     "iamcco/markdown-preview.nvim",
