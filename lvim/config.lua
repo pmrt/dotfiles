@@ -115,7 +115,7 @@ lvim.builtin.nvimtree.setup.open_on_setup = false
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.highlight.enabled = true;
 
 -- Fix: document highlight colors
 -- lvim.lsp.document_highlight = false
@@ -171,6 +171,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     args = {}
 --   }
 -- }
+
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options = {
   icons_enabled = 1,
@@ -186,9 +187,9 @@ lvim.builtin.lualine.options = {
 --     }
 -- }
 lvim.plugins = {
-  {
-    "segeljakt/vim-isotope",
-  },
+  -- {
+  --   "segeljakt/vim-isotope",
+  -- },
 
   {
     "mhinz/vim-startify",
@@ -198,7 +199,7 @@ lvim.plugins = {
       vim.g.startify_session_autoload = 0
       vim.g.startify_session_delete_buffers = 1
       vim.g.startify_session_persistence = 0
-      vim.g.startify_change_to_vcs_root = 1
+      vim.g.startify_change_to_vcs_root = 0
       vim.g.startify_fortune_use_unidecode = 1
       vim.g.startify_enable_special = 1
       vim.g.startify_lists = {
@@ -235,7 +236,7 @@ lvim.plugins = {
     run = "cd app && npm install",
     ft = "markdown",
     config = function()
-      vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_auto_start = 0
       vim.g.mkdp_port = '4000'
     end,
   },
@@ -247,9 +248,9 @@ lvim.plugins = {
     end
   },
 
-  {
-    "tpope/vim-obsession",
-  },
+  -- {
+  --   "tpope/vim-obsession",
+  -- },
 
   {
     "ggandor/lightspeed.nvim",
@@ -289,29 +290,29 @@ lvim.plugins = {
     keys = {"c", "d", "S"}
   },
 
-  {
-    "tpope/vim-fugitive",
-    cmd = {
-      "G",
-      "Git",
-      "Gdiffsplit",
-      "Gread",
-      "Gwrite",
-      "Ggrep",
-      "GMove",
-      "GDelete",
-      "GBrowse",
-      "GRemove",
-      "GRename",
-      "Glgrep",
-      "Gedit"
-    },
-    ft = {"fugitive"}
-  },
+  -- {
+  --   "tpope/vim-fugitive",
+  --   cmd = {
+  --     "G",
+  --     "Git",
+  --     "Gdiffsplit",
+  --     "Gread",
+  --     "Gwrite",
+  --     "Ggrep",
+  --     "GMove",
+  --     "GDelete",
+  --     "GBrowse",
+  --     "GRemove",
+  --     "GRename",
+  --     "Glgrep",
+  --     "Gedit"
+  --   },
+  --   ft = {"fugitive"}
+  -- },
 
-  {
-    "rose-pine/neovim",
-  },
+  -- {
+  --   "rose-pine/neovim",
+  -- },
 
   {
     "sainnhe/everforest",
@@ -393,12 +394,12 @@ lvim.autocommands.custom_groups = {
 }
 
 -- Start Obsession automatically.
-vim.api.nvim_exec(
-[[
-  augroup ObsessionGroup
-    autocmd!
-    autocmd VimEnter * nested if !&modified && empty(v:this_session) | Obsession | echo "Recording new session" | endif
-  augroup END
-]],
-false)
+-- vim.api.nvim_exec(
+-- [[
+--   augroup ObsessionGroup
+--     autocmd!
+--     autocmd VimEnter * nested if !&modified && empty(v:this_session) | Obsession | echo "Recording new session" | endif
+--   augroup END
+-- ]],
+-- false)
 
