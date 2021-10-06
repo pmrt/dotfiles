@@ -43,6 +43,9 @@ let &fcs='eob: '
 " Reverse search with lightspeed (because vim-surround overwrites it and its
 " an old plugin k
 map ß <Plug>Lightspeed_S
+
+" Previous buffer with Alt + o
+map ø :b#<CR>
 ]],
 false)
 
@@ -107,9 +110,13 @@ lvim.builtin.which_key.setup.ignore_missing = true
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+lvim.builtin.nvimtree.quit_on_open = 1
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.show_icons.git = false
+lvim.builtin.nvimtree.setup.auto_open = false
+lvim.builtin.nvimtree.setup.auto_close = true
+lvim.builtin.nvimtree.hide_dotfiles = false
 lvim.builtin.nvimtree.setup.open_on_setup = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
