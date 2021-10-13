@@ -1,5 +1,6 @@
 import:
-  - ~/.config/alacritty/themes/everforest.yml
+  # - ~/.config/alacritty/themes/everforest.yml
+  - ~/.config/alacritty/themes/gruvbox.yml
 
 # Window
 window:

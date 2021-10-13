@@ -22,7 +22,13 @@ vim.g.everforest_show_eob = 0
 vim.g.everforest_current_word = "underline"
 vim.g.everforest_better_performance = 1
 
-lvim.colorscheme = "everforest"
+vim.g.gruvbox_material_current_word = "underline"
+vim.g.gruvbox_material_background = "soft"
+vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_sign_column_background = "none"
+
+
+lvim.colorscheme = "gruvbox-material"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -48,8 +54,6 @@ map ß <Plug>Lightspeed_S
 map ø :b#<CR>
 ]],
 false)
-
-lvim.keys.insert_mode["jj"] = nil
 
 -- Center cursor when navigating
 lvim.keys.normal_mode["n"] = "nzz"
@@ -182,7 +186,7 @@ lvim.builtin.treesitter.highlight.enabled = true;
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options = {
   icons_enabled = 1,
-  theme = "everforest"
+  theme = "gruvbox-material",
 }
 
 -- Additional Plugins
@@ -245,6 +249,16 @@ lvim.plugins = {
     config = function()
       vim.g.mkdp_auto_start = 0
       vim.g.mkdp_port = '4000'
+    end,
+  },
+
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup({
+        mapping = { "jk" },
+        timeout = 1,
+      })
     end,
   },
 
@@ -320,6 +334,10 @@ lvim.plugins = {
   -- {
   --   "rose-pine/neovim",
   -- },
+
+  {
+    "sainnhe/gruvbox-material",
+  },
 
   {
     "sainnhe/everforest",
