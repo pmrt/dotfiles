@@ -3,6 +3,7 @@ lvim.builtin.bufferline.active = false
 vim.cmd [[ set showtabline=0 ]]
 vim.cmd [[ set cmdheight=1 ]]
 vim.cmd [[ set textwidth=80 ]]
+vim.cmd [[ set timeoutlen=250 ]]
 
 -- general
 lvim.format_on_save = true
