@@ -28,8 +28,8 @@ vim.g.gruvbox_material_background = "soft"
 vim.g.gruvbox_material_better_performance = 1
 vim.g.gruvbox_material_sign_column_background = "none"
 
+lvim.colorscheme = "rose-pine"
 
-lvim.colorscheme = "gruvbox-material"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -80,6 +80,7 @@ lvim.builtin.which_key.mappings["v"] = { "<cmd>Telescope live_grep<CR>", "Live g
 lvim.builtin.which_key.mappings["q"] = { ":wq<CR>", "Save and quit" }
 lvim.builtin.which_key.setup.ignore_missing = true
 
+lvim.builtin.comment.mappings.extra = true
 -- No highlight + remove from minimap
 -- lvim.builtin.which_key.mappings["h"] = { ":nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>", "No highlight"}
 
@@ -187,7 +188,7 @@ lvim.builtin.treesitter.highlight.enabled = true;
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.options = {
   icons_enabled = 1,
-  theme = "gruvbox-material",
+  theme = "rose-pine",
 }
 
 -- Additional Plugins
@@ -332,9 +333,9 @@ lvim.plugins = {
   --   ft = {"fugitive"}
   -- },
 
-  -- {
-  --   "rose-pine/neovim",
-  -- },
+  {
+    "rose-pine/neovim",
+  },
 
   {
     "sainnhe/gruvbox-material",
