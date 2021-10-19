@@ -75,6 +75,9 @@ lvim.keys.normal_mode["]]"] = "]]zz"
 -- lvim.keys.normal_mode["oo"] = "o<Esc>k"
 lvim.keys.normal_mode["OO"] = "O<Esc>j"
 lvim.keys.normal_mode["oo"] = "o<Esc>k"
+-- Delete always to black hole, instead of yanking
+lvim.keys.normal_mode["d"] = '"_d'
+lvim.keys.visual_mode["d"] = '"_d'
 
 lvim.builtin.which_key.mappings["v"] = { "<cmd>Telescope live_grep<CR>", "Live grep" }
 lvim.builtin.which_key.mappings["q"] = { ":wq<CR>", "Save and quit" }
@@ -310,7 +313,7 @@ lvim.plugins = {
 
   {
     "tpope/vim-surround",
-    keys = {"c", "d", "S"}
+    keys = {"c", "S"}
   },
 
   -- {
