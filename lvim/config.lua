@@ -341,6 +341,18 @@ lvim.plugins = {
   },
 
   {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      local nightfox = require("nightfox")
+      nightfox.setup({
+        fox = "duskfox"
+      })
+
+      nightfox.load()
+    end
+  },
+
+  {
     "sainnhe/gruvbox-material",
   },
 

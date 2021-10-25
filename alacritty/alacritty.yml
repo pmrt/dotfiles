@@ -1,6 +1,7 @@
 import:
   # - ~/.config/alacritty/themes/everforest.yml
-  - ~/.config/alacritty/themes/rose-pine-moon.yml
+  # - ~/.config/alacritty/themes/rose-pine-moon.yml
+  - ~/.config/alacritty/themes/nightfox.yml
 
 # Window
 window:
