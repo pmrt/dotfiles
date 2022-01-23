@@ -24,7 +24,8 @@ vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes" -- show/hide sign column. "no" -> auto. hide/show, "yes" -> always
 vim.opt.scrolloff = 8 -- min. lines to keep above and below cursor.
 vim.opt.sidescrolloff = 8 -- same as above, horizontally
-vim.cmd "set whichwrap+=<,>,[,],h,l" -- allow keys that move the cursor left/right to move to the previous/next line when the cursor is on the first/last character
+vim.opt.whichwrap:append("<", ">", "[", "]", "h", "l")
+vim.opt.fillchars:append("eob: ")
 
 -- # General #
 
@@ -41,7 +42,7 @@ vim.opt.termguicolors = true
 vim.opt.hlsearch = true -- highlight al matches on previous search patterns
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.smartcase = true -- overrides ignore case if the pattern contains upper case characters
-vim.cmd [[set iskeyword+=-]] -- add keywords to match words in patterns, e.g.: test-ui
+vim.opt.iskeyword:append("-") -- add keywords to match words in patterns, e.g.: test-ui
 -- Undo settings
 vim.opt.undofile = true -- enable/disable undo history after closing a buffer
 -- Backup settings
@@ -51,6 +52,7 @@ vim.opt.writebackup = false -- allow/disallow to edit file if it is being edit b
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 2 -- number of spaces for indentation
 vim.opt.tabstop = 2 -- number of spaces for a tab
+
 
 -- Apply formatoptions on buffer enter.
 vim.api.nvim_exec(
@@ -62,3 +64,4 @@ vim.api.nvim_exec(
   ]],
   false
 )
+
