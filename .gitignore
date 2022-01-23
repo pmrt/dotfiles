@@ -15,6 +15,9 @@ tmux/Session.vim
 Session.vim
 lazygit/.config
 lazygit/state.yml
+*.bak
 
 lvim/plugin/packer_compiled.lua
 lvim/plugin/packer_compiled.lua
+
+b2/*
