@@ -1,12 +1,13 @@
 -- :help options
 
 -- # UI #
-
 vim.opt.background = "dark"
 vim.opt.mouse = "a" -- allow mouse
 -- Rose pine
 vim.g.rose_pine_disable_talics = true
 vim.g.rose_pine_variant = "moon"
+-- Theme
+vim.cmd('colorscheme rose-pine')
 -- UI Element sizes
 vim.opt.textwidth = 80 -- max colum size
 vim.opt.pumheight = 10 -- pop up menu height

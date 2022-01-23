@@ -34,8 +34,8 @@ map("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 map("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 map("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Buffer nav.
-map("n", "<S-l>", ":bnext<CR>", opts)
-map("n", "<S-h>", ":bprevious<CR>", opts)
+map("n", "L", ":bnext<CR>", opts)
+map("n", "H", ":bprevious<CR>", opts)
 -- Escape
 map("i", "kj", "<ESC>", opts)
 map("i", "jk", "<ESC>", opts)
