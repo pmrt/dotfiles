@@ -63,6 +63,8 @@ return packer.startup(function(use)
 
   use "tpope/vim-surround"
 
+  use 'ggandor/lightspeed.nvim'
+
   if packer_bootstrap then
     require("packer").sync()
   end
