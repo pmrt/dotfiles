@@ -21,12 +21,7 @@ return packer.startup(function(use)
     "rose-pine/neovim",
   }
 
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-  }
+  use 'numToStr/Comment.nvim'
 
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
@@ -58,6 +53,7 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use "p00f/nvim-ts-rainbow"
 
   if packer_bootstrap then

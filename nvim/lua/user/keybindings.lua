@@ -53,15 +53,15 @@ map("n", "N", "Nzz", opts)
 -- Remove highlight
 map("n", "<leader>h", ":nohls<CR>", opts)
 
--- # Editing # 
+-- # Editing #
 
 -- Quick save
 map("n", "<C-s>", ":w<cr>", opts)
 -- quick save and exit
 map("n", "<C-q>", ":wq<cr>", opts)
 -- Avoid default yanking when deleting to clipboard (pasting to black hole)
-map("n", "d", '"_d', opts) 
-map("v", "d", '"_d', opts) 
+map("n", "d", '"_d', opts)
+map("v", "d", '"_d', opts)
 map("n", "y", '"_y', opts)
 map("n", "Y", '"_Y', opts)
 map("v", "y", '"_y', opts)
@@ -92,3 +92,4 @@ map(
 map("n", "<leader>v", "<cmd>Telescope live_grep<cr>", opts)
 -- Nvimtree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+
