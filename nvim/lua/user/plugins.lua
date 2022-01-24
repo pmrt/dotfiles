@@ -40,6 +40,9 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
 
+  -- colorizer
+  use "norcalli/nvim-colorizer.lua"
+
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets"
@@ -51,7 +54,11 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
-  -- use "nvim-treesitter/nvim-treesitter", {"do": ":TSUpdate"}
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "p00f/nvim-ts-rainbow"
 
   if packer_bootstrap then
     require("packer").sync()
