@@ -59,6 +59,8 @@ return packer.startup(function(use)
   use "windwp/nvim-ts-autotag"
   use "p00f/nvim-ts-rainbow"
 
+  use 'kdheepak/lazygit.nvim'
+
   if packer_bootstrap then
     require("packer").sync()
   end

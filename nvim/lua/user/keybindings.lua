@@ -92,4 +92,5 @@ map(
 map("n", "<leader>v", "<cmd>Telescope live_grep<cr>", opts)
 -- Nvimtree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
+-- Lazygit
+map("n", "<leader>g", ":LazyGit<CR>", opts)
