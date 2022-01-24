@@ -14,6 +14,8 @@ end
 
 return packer.startup(function(use)
   -- Add plugins here
+  use "nvim-lua/popup.nvim"
+  use "nvim-lua/plenary.nvim"
   
   use {
     "rose-pine/neovim",
@@ -31,6 +33,19 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
+  use "saadparwaiz1/cmp_luasnip"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets"
+
+  -- LSP
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer" 
+
+  -- use "nvim-treesitter/nvim-treesitter", {"do": ":TSUpdate"}
 
   if packer_bootstrap then
     require("packer").sync()

@@ -1,7 +1,15 @@
-local ok, cmp = pcall(require, "cmp")
-if not ok then
+local cmp_ok, cmp = pcall(require, "cmp")
+if not cmp_ok then
   return
 end
+
+local snip_ok, luasnip = pcall(require, "luasnip")
+if not snip_ok then
+  return
+end
+
+require("luasnip/loaders/from_vscode").lazy_load()
+
 
 local is_backspace = function()
   local col = vim.fn.col "." - 1
@@ -39,6 +47,11 @@ local kind_icons = {
 }
 
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -58,6 +71,10 @@ cmp.setup {
     ["<Tab>"] = cmp.mapping(function(cb)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jumpable()
       elseif is_backspace() then
         cb()
       else
@@ -67,6 +84,8 @@ cmp.setup {
     ["<S-Tab>"] = cmp.mapping(function(cb)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         cb()
       end
@@ -77,6 +96,9 @@ cmp.setup {
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[NVIM_LUA]",
+        luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
       }) [entry.source.name]
@@ -84,12 +106,18 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
+  },
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
   experimental = {
     ghost_text = false,
