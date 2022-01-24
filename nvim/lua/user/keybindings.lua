@@ -83,10 +83,12 @@ map("n", "∆", "i<CR><Esc>", opts)
 map("n", "P", ":co.<CR>", opts)
 
 -- Plugins
-
+-- Telescope
 map(
   "n",
   "<leader>f",
   "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
   opts)
 map("n", "<leader>v", "<cmd>Telescope live_grep<cr>", opts)
+-- Nvimtree
+map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)

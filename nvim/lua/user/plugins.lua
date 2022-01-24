@@ -16,7 +16,7 @@ return packer.startup(function(use)
   -- Add plugins here
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
-  
+
   use {
     "rose-pine/neovim",
   }
@@ -27,6 +27,9 @@ return packer.startup(function(use)
         require('Comment').setup()
     end
   }
+
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
 
   -- cmp
   use "hrsh7th/nvim-cmp"
