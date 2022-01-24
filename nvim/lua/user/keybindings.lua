@@ -89,4 +89,4 @@ map(
   "<leader>f",
   "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
   opts)
-map("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+map("n", "<leader>v", "<cmd>Telescope live_grep<cr>", opts)
