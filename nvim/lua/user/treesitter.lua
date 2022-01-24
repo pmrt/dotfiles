@@ -31,5 +31,9 @@ configs.setup {
       "#e0def4",
     }, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
+  },
+  autotag = {
+    enable = true,
+    filetypes = { "html" , "xml" },
   }
 }

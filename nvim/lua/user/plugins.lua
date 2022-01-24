@@ -54,6 +54,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use "windwp/nvim-ts-autotag"
   use "p00f/nvim-ts-rainbow"
 
   if packer_bootstrap then
