@@ -1,4 +1,4 @@
-local opts = { 
+local opts = {
   noremap = true,
   silent = true
 }
@@ -24,7 +24,7 @@ vim.g.maplocalleader = " "
 --  # Navigation #
 
 -- Window nav.
-map("n", "<C-h", "<C-w>h", opts)
+map("n", "<C-h>", "<C-w>h", opts)
 map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
@@ -76,8 +76,17 @@ map("x", "J", ":move '>+1<CR>gv-gv", opts)
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
--- By default J is to join two lines. So make ctrl+J to split
-map("n", "<C-J>", "i<CR><Esc>", opts)
-map("n", "<C-J>", "i<CR><Esc>", opts)
+-- By default J is to join two lines. So make alt+j to split
+map("n", "∆", "i<CR><Esc>", opts)
+map("n", "∆", "i<CR><Esc>", opts)
 -- Duplicate current line
 map("n", "P", ":co.<CR>", opts)
+
+-- Plugins
+
+map(
+  "n",
+  "<leader>f",
+  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+  opts)
+map("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
