@@ -17,7 +17,9 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
 
+  use 'goolord/alpha-nvim'
   use "windwp/nvim-autopairs"
+  use "ahmedkhalf/project.nvim"
 
   use {
     "rose-pine/neovim",
@@ -64,6 +66,8 @@ return packer.startup(function(use)
   use "tpope/vim-surround"
 
   use 'ggandor/lightspeed.nvim'
+
+  use "akinsho/toggleterm.nvim"
 
   if packer_bootstrap then
     require("packer").sync()
