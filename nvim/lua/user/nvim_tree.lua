@@ -28,6 +28,11 @@ nvim_tree.setup {
     enable = true,
     auto_open = true,
   },
+  filters = {
+    dotfiles = false,
+    custom = { ".git" }
+
+  },
   diagnostics = {
     enable = true,
     icons = {
