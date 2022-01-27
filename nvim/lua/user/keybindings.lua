@@ -90,6 +90,7 @@ map(
   "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
   opts)
 map("n", "<leader>v", "<cmd>Telescope live_grep<cr>", opts)
+map("n", "<leader>s", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", opts)
 -- Nvimtree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Lazygit
