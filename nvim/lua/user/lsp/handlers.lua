@@ -72,7 +72,7 @@ M.on_attach = function(client, buf)
   map(buf, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   map(buf, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   map(buf, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  map(buf, "n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>', opts)
+  map(buf, "n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
