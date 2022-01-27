@@ -55,13 +55,20 @@ vim.opt.shiftwidth = 2 -- number of spaces for indentation
 vim.opt.tabstop = 2 -- number of spaces for a tab
 
 
--- Apply formatoptions on buffer enter.
 vim.api.nvim_exec(
   [[
+  " Apply formatoptions on buffer enter.
     augroup FormatGroup
       autocmd!
       autocmd BufEnter * set formatoptions-=cro
     augroup END
+
+  " Auto resize windows on resize event
+    augroup WinResizeGroup
+      autocmd!
+      autocmd VimResized * wincmd =
+    augroup END
+  
   ]],
   false
 )
