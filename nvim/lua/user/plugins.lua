@@ -69,6 +69,13 @@ return packer.startup(function(use)
 
   use "akinsho/toggleterm.nvim"
 
+  use {
+  'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  }
+
   if packer_bootstrap then
     require("packer").sync()
   end
