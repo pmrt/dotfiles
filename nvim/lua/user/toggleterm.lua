@@ -4,16 +4,16 @@ if not ok then
 end
 
 toggleterm.setup({
-	size = 10,
-	open_mapping = [[<leader>t]],
+	size = 20,
+	open_mapping = [[<c-a>]],
 	hide_numbers = true,
 	shade_filetypes = {},
 	shade_terminals = true,
 	shading_factor = 2,
-	start_in_insert = false,
-  insert_mappings = false,
+	start_in_insert = true,
+  insert_mappings = true,
 	persist_size = true,
-	direction = "horizontal",
+	direction = "float",
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {

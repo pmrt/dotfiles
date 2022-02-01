@@ -56,9 +56,13 @@ map("n", "<leader>h", ":nohls<CR>", opts)
 -- # Editing #
 
 -- Quick save
-map("n", "<C-s>", ":w<cr>", opts)
+map("n", "<C-w>", ":w<cr>", opts)
+map("i", "<C-w>", "<Esc>:w<cr>i<Right>", opts)
 -- quick save and exit
+-- map("n", "<C-q>", ":wq<cr>", opts)
+-- In vim C-Q is c-qq
 map("n", "<C-q>", ":wq<cr>", opts)
+map("i", "<C-q>", "<Esc>:wq<cr>", opts)
 -- Avoid default yanking when deleting to clipboard (pasting to black hole)
 map("n", "d", '"_d', opts)
 map("v", "d", '"_d', opts)
@@ -95,3 +99,8 @@ map("n", "<leader>s", "<cmd>lua require('telescope.builtin').lsp_document_symbol
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Lazygit
 map("n", "<leader>g", ":LazyGit<CR>", opts)
+-- ToggleTerm
+map("n", "<c-s>", ":7ToggleTerm<CR>", opts)
+map("t", "<c-s>", "<Esc><Cmd>7ToggleTerm<CR>", term_opts)
+map("n", "<c-d>", ":8ToggleTerm<CR>", opts)
+map("t", "<c-d>", "<Esc><Cmd>8ToggleTerm<CR>", term_opts)
