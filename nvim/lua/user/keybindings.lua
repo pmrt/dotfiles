@@ -77,8 +77,7 @@ map("n", "oo", "o<Esc>k", opts)
 map("n", "OO", "O<Esc>j", opts)
 -- Move text up and down
 map("x", "J", ":move '>+1<CR>gv-gv", opts)
-map("x", "K", ":move '<-2<CR>gv-gv", opts)
-map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+map("x", "K", ":move '<-2<CR>gv-gv", opts) map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- By default J is to join two lines. So make alt+j to split
 map("n", "∆", "i<CR><Esc>", opts)
@@ -100,7 +99,5 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Lazygit
 map("n", "<leader>g", ":LazyGit<CR>", opts)
 -- ToggleTerm
-map("n", "<c-s>", ":7ToggleTerm<CR>", opts)
-map("t", "<c-s>", "<Esc><Cmd>7ToggleTerm<CR>", term_opts)
-map("n", "<c-d>", ":8ToggleTerm<CR>", opts)
-map("t", "<c-d>", "<Esc><Cmd>8ToggleTerm<CR>", term_opts)
+map("n", "<c-s>", ":8ToggleTerm<CR>", opts)
+map("t", "<c-s>", "<Esc><Cmd>8ToggleTerm<CR>", term_opts)
