@@ -99,5 +99,9 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Lazygit
 map("n", "<leader>g", ":LazyGit<CR>", opts)
 -- ToggleTerm
-map("n", "<c-s>", ":8ToggleTerm<CR>", opts)
-map("t", "<c-s>", "<Esc><Cmd>8ToggleTerm<CR>", term_opts)
+-- Run last command
+map("n", "<C-d>", '<Cmd>execute v:count . "ToggleTerm"<CR><Up><CR>', opts)
+map("i", "<C-d>", '<Cmd>execute v:count . "ToggleTerm"<CR><Up><CR>', opts)
+-- Example of keymaps to more terminals
+-- map("n", "<c-s>", ":8ToggleTerm<CR>", opts)
+-- map("t", "<c-s>", "<Esc><Cmd>8ToggleTerm<CR>", term_opts)
