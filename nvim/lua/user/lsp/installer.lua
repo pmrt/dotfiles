@@ -9,6 +9,11 @@ installer.on_server_ready(function(sv)
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
+  if sv.name == "gopls" then
+    local gopls_opts = require("user.lsp.languages.go.opts")
+    opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+  end
+
   -- Add here custom options for each language server
   -- if sv.name == "jsonl" then
     -- local jsonls_opts = require("user.lsp.settings.jsonls")

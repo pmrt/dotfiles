@@ -86,6 +86,8 @@ map("n", "∆", "i<CR><Esc>", opts)
 map("n", "P", ":co.<CR>", opts)
 
 -- Plugins
+-- Null-ls formatting
+map("n", "<leader>d", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 -- Telescope
 map(
   "n",
