@@ -24,7 +24,7 @@ vim.opt.wrap = false -- prefer one long line instead of wraping (breaking) a lon
 vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes" -- show/hide sign column. "no" -> auto. hide/show, "yes" -> always
 vim.opt.scrolloff = 8 -- min. lines to keep above and below cursor.
-vim.opt.sidescrolloff = 8 -- same as above, horizontally
+-- vim.opt.sidescrolloff = 8 -- same as above, horizontally
 vim.opt.whichwrap:append("<", ">", "[", "]", "h", "l")
 vim.opt.fillchars:append("eob: ")
 
