@@ -13,8 +13,7 @@ tmux/resurrect
 tmux/plugins
 tmux/Session.vim
 Session.vim
-lazygit/.config
-lazygit/state.yml
+lazygit/*
 *.bak
 
 lvim/plugin/packer_compiled.lua
