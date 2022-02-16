@@ -67,14 +67,23 @@ M.on_attach = function(client, buf)
   map(buf, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   map(buf, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   map(buf, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  map(buf, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  -- map(buf, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   map(buf, "n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   map(buf, "n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   map(buf, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   map(buf, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   map(buf, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   map(buf, "n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd [[ 
+    command! Format execute 'lua vim.lsp.buf.formatting_sync()' 
+    augroup LspFormatOnSaveGroup
+      autocmd! * <buffer>
+      autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
+    augroup END
+    ]]
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
