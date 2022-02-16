@@ -21,8 +21,13 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"
   use "ahmedkhalf/project.nvim"
 
+  -- use {
+  --   "rose-pine/neovim",
+  -- }
+
   use {
-    "rose-pine/neovim",
+    "catppuccin/nvim",
+    as = "catppuccin"
   }
 
   use 'numToStr/Comment.nvim'
