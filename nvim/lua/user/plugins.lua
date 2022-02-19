@@ -74,6 +74,8 @@ return packer.startup(function(use)
 
   use "akinsho/toggleterm.nvim"
 
+  use "mfussenegger/nvim-dap"
+
   use {
   'lewis6991/gitsigns.nvim',
     requires = {
