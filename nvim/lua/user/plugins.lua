@@ -88,6 +88,8 @@ return packer.startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   }
 
+  use 'ojroques/vim-oscyank'
+
   if packer_bootstrap then
     require("packer").sync()
   end
