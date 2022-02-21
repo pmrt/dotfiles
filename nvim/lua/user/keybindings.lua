@@ -7,6 +7,7 @@ local term_opts = {
 }
 
 local map = vim.api.nvim_set_keymap
+local bufmap = vim.api.nvim_buf_set_keymap
 
 -- Leader key
 map("", "<Space>", "<Nop>", opts)
@@ -84,6 +85,13 @@ map("n", "∆", "i<CR><Esc>", opts)
 map("n", "∆", "i<CR><Esc>", opts)
 -- Duplicate current line
 map("n", "P", ":co.<CR>", opts)
+-- Quickfix
+map("n", "]q", ":cnext<cr>zz", opts)
+map("n", "[q", ":cprev<cr>zz", opts)
+map("n", "<leader>qc", ":ccl<cr>", opts)
+map("n", "<leader>qlc", ":lcl<cr>", opts)
+map("n", "<leader>qq", ":copen<cr>", opts)
+map("n", "<leader>ql", ":lopen<cr>", opts)
 
 -- Plugins
 -- Telescope
@@ -92,6 +100,7 @@ map(
   "<leader>f",
   "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
   opts)
+map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 map("n", "<leader>v", "<cmd>Telescope live_grep<cr>", opts)
 map("n", "<leader>s", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", opts)
 -- Nvimtree
@@ -105,3 +114,63 @@ map("i", "<C-d>", '<Cmd>execute v:count . "ToggleTerm"<CR><Up><CR>', opts)
 -- Example of keymaps to more terminals
 -- map("n", "<c-s>", ":8ToggleTerm<CR>", opts)
 -- map("t", "<c-s>", "<Esc><Cmd>8ToggleTerm<CR>", term_opts)
+
+-- Dap
+-- Recommended
+-- nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+-- nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+-- nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+-- nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+-- nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+-- nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+-- nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
+-- nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+-- nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
+--
+-- Imagine mappings like this:
+--         step_out (up)
+--             ↑
+--           ←   → step_into (next)
+--             ↓
+--          step_over (down, skip)
+-- Then, each direction corresponds to vim maps prepended with <leader>d: l, k, j
+map("n", "<leader>dc", ":lua require'dap'.continue()<cr>", opts)
+map("n", "<leader>dq", ":lua require'dap'.disconnect()<cr>", opts)
+map("n", "<leader>dl", ":lua require'dap'.step_into()<cr>", opts)
+map("n", "<leader>dk", ":lua require'dap'.step_out()<cr>", opts)
+map("n", "<leader>dj", ":lua require'dap'.step_over()<cr>", opts)
+map("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>", opts)
+map("n", "<leader>dB", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+map("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>", opts)
+
+function _G.dap_mappings()
+  bufmap(0, "n", "c", ":lua require'dap'.continue()<cr>", opts)
+  bufmap(0, "n", "q", ":lua require'dap'.disconnect()<cr>", opts)
+  bufmap(0, "n", "l", ":lua require'dap'.step_into()<cr>", opts)
+  bufmap(0, "n", "k", ":lua require'dap'.step_out()<cr>", opts)
+  bufmap(0, "n", "j", ":lua require'dap'.step_over()<cr>", opts)
+end
+
+function _G.quickfix_mappings()
+  -- k and j on quickfix window (also: center and go back to qf)
+  bufmap(0, "n", "k", ":cprev<cr>zz:set cursorline<cr><C-w>w", opts)
+  bufmap(0, "n", "j", ":cnext<cr>zz:set cursorline<cr><C-w>w", opts)
+  -- l for enter and close on quickfix window
+  bufmap(0, "n", "l", ":.cc<cr>zz:ccl<cr>", opts)
+  -- q for quit on quickfix window
+  bufmap(0, "n", "q", ":ccl<cr>", opts)
+end
+
+vim.api.nvim_exec(
+  [[
+  augroup DapMappingsGroup
+    autocmd!
+    autocmd FileType dap-repl call v:lua.dap_mappings()
+  augroup END
+
+  augroup QuickfixMappingsGroup
+    autocmd!
+    autocmd FileType qf call v:lua.quickfix_mappings()
+  augroup END
+  ]], false
+)
