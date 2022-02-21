@@ -13,6 +13,7 @@ vim.opt.cmdheight = 1 -- neovim command line height
 vim.opt.numberwidth = 4 -- number column width
 -- UI Elements
 vim.opt.showmode = false -- hide/show the current mode in the command line
+vim.opt.cursorline = true
 vim.opt.showtabline = 0 -- tab mode (0 = hide) 
 vim.opt.number = true -- show number column
 -- UI Behaviour
