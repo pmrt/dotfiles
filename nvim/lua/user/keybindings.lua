@@ -153,8 +153,8 @@ end
 
 function _G.quickfix_mappings()
   -- k and j on quickfix window (also: center and go back to qf)
-  bufmap(0, "n", "k", ":cprev<cr>zz:set cursorline<cr><C-w>w", opts)
-  bufmap(0, "n", "j", ":cnext<cr>zz:set cursorline<cr><C-w>w", opts)
+  bufmap(0, "n", "k", ":cprev<cr>zz<C-w>w", opts)
+  bufmap(0, "n", "j", ":cnext<cr>zz<C-w>w", opts)
   -- l for enter and close on quickfix window
   bufmap(0, "n", "l", ":.cc<cr>zz:ccl<cr>", opts)
   -- q for quit on quickfix window
