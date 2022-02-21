@@ -27,10 +27,13 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce
-sudo usermod -aG docker ${USER}
+sudo usermod -aG docker $USER
 su - ${USER}
 id -nG
-
+# docker-compose
+mkdir -p ~/.docker/cli-plugins/
+curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose-linux-x86_64
+chmod +x ~/.docker/cli-plugins/docker-compose
 
 # golang
 # gopls y debugger
