@@ -11,7 +11,9 @@ function goimports(timeout_ms)
   -- (lua/vim/lsp/handler.lua) for how to do this properly.
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
   print(vim.inspect(result[0]))
-  if not result or next(result) == nil or table.getn(result) == 0 then return end
+  -- if not result or next(result) == nil or table.getn(result) == 0 then return end
+  if not result then return end
+  if not result[1] then return end
   local actions = result[1].result
   if not actions then return end
   local action = actions[1]
@@ -21,7 +23,7 @@ function goimports(timeout_ms)
   -- should be executed first.
   if action.edit or type(action.command) == "table" then
     if action.edit then
-      vim.lsp.util.apply_workspace_edit(action.edit)
+      vim.lsp.util.apply_workspace_edit(action.edit, "utf-8")
     end
     if type(action.command) == "table" then
       vim.lsp.buf.execute_command(action.command)

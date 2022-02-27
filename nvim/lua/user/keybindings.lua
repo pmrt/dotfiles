@@ -93,6 +93,8 @@ map("n", "<leader>qlc", ":lcl<cr>", opts)
 map("n", "<leader>qq", ":copen<cr>", opts)
 map("n", "<leader>ql", ":lopen<cr>", opts)
 
+map("n", "<leader>m", "<cmd>make<cr>", opts)
+
 -- Plugins
 -- Telescope
 map(
@@ -109,8 +111,8 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 map("n", "<leader>g", ":LazyGit<CR>", opts)
 -- ToggleTerm
 -- Run last command
-map("n", "<C-d>", '<Cmd>execute v:count . "ToggleTerm"<CR><Up><CR>', opts)
-map("i", "<C-d>", '<Cmd>execute v:count . "ToggleTerm"<CR><Up><CR>', opts)
+-- map("n", "<C-d>", '<Cmd>execute v:count . "ToggleTerm"<CR><Up><CR>', opts)
+-- map("i", "<C-d>", '<Cmd>execute v:count . "ToggleTerm"<CR><Up><CR>', opts)
 -- Example of keymaps to more terminals
 -- map("n", "<c-s>", ":8ToggleTerm<CR>", opts)
 -- map("t", "<c-s>", "<Esc><Cmd>8ToggleTerm<CR>", term_opts)

@@ -1,7 +1,5 @@
-local ok, installer = pcall(require, "nvim-lsp-installer")
-if not ok then
-  return
-end
+local installer = require "nvim-lsp-installer"
+local coq = require "coq"
 
 installer.on_server_ready(function(sv)
   local opts = {
@@ -14,11 +12,20 @@ installer.on_server_ready(function(sv)
     opts = vim.tbl_deep_extend("force", gopls_opts, opts)
   end
 
+  if sv.name == "tsserver" then
+    local ts_opts = require("user.lsp.languages.ts.opts")
+    opts = vim.tbl_deep_extend("force", ts_opts, opts)
+  end
+
+  if sv.name == "eslint" then
+    local eslint_opts = require("user.lsp.languages.eslint.opts")
+    opts = vim.tbl_deep_extend("force", eslint_opts, opts)
+  end
+
   -- Add here custom options for each language server
   -- if sv.name == "jsonl" then
     -- local jsonls_opts = require("user.lsp.settings.jsonls")
     -- opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
   -- end
-
-  sv:setup(opts)
+  sv:setup(coq.lsp_ensure_capabilities(opts))
 end)

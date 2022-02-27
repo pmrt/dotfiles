@@ -45,6 +45,27 @@ M.setup = function()
 end
 
 M.on_attach = function(client, buf)
+  if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+
+    local ts_utils = require("nvim-lsp-ts-utils")
+    ts_utils.setup({})
+    ts_utils.setup_client(client)
+  end
+
+  if client.name == "svelte" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
+  if client.name == "html" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
+  if client.name == "eslint" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
   -- Highlight on hover
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
@@ -77,10 +98,10 @@ M.on_attach = function(client, buf)
 
   if client.resolved_capabilities.document_formatting then
     vim.cmd [[ 
-    command! Format execute 'lua vim.lsp.buf.formatting_sync()' 
+    " command! Format execute 'lua vim.lsp.buf.formatting_sync()' 
     augroup LspFormatOnSaveGroup
       autocmd! * <buffer>
-      autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
+      autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
     augroup END
     ]]
   end
@@ -88,11 +109,11 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not ok then
-  return
-end
-
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+--local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+--if not ok then
+  --return
+--end
+--
+--M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M

@@ -8,9 +8,11 @@ bash install_nvm.sh
 
 # Prettier
 npm install -g prettier
+npm install -g @fsouza/prettierd
 
 # eslint
 npm install -g eslint
+npm install -g eslint_d
 
 # Telescope
 # Ripgrep
@@ -20,6 +22,12 @@ sudo apt-get install fd-find
 
 # Mosh
 sudo apt install mosh
+
+# universal ctags
+sudo apt install universal-ctags
+
+# python virtual env, required for coq-nvim
+sudo apt install --yes -- python3-venv
 
 # docker
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
