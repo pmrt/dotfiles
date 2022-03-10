@@ -14,6 +14,9 @@ end
 
 return packer.startup(function(use)
   -- Add plugins here
+  use 'lewis6991/impatient.nvim'
+  use 'nathom/filetype.nvim'
+
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
 
@@ -67,7 +70,10 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
-  use 'kdheepak/lazygit.nvim'
+  use {
+    'kdheepak/lazygit.nvim',
+    branch = 'main',
+  }
 
   use "tpope/vim-surround"
 
