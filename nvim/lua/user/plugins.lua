@@ -100,6 +100,7 @@ return packer.startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use "windwp/nvim-ts-autotag"
   use "p00f/nvim-ts-rainbow"
+  use 'ray-x/lsp_signature.nvim'
 
 
   if packer_bootstrap then

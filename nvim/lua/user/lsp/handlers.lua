@@ -66,6 +66,8 @@ M.on_attach = function(client, buf)
     client.resolved_capabilities.document_formatting = false
   end
 
+  require "lsp_signature".on_attach(client)
+
   -- Highlight on hover
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
