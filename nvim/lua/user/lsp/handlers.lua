@@ -52,10 +52,17 @@ M.on_attach = function(client, buf)
     local ts_utils = require("nvim-lsp-ts-utils")
     ts_utils.setup({})
     ts_utils.setup_client(client)
+
+    -- TS files are really slow, follow-up:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/1396
+    local cache = require("user.lsp.prebuild")
+    cache.on_attach(client, buf)
   end
 
   if client.name == "svelte" then
     client.resolved_capabilities.document_formatting = false
+    local cache = require("user.lsp.prebuild")
+    cache.on_attach(client, buf)
   end
 
   if client.name == "html" then
