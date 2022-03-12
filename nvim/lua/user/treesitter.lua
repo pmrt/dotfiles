@@ -4,9 +4,31 @@ if not ok then
 end
 
 configs.setup {
-  ensure_installed = "maintained",
-  sync_install = false,
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  ensure_installed = {
+    "bash",
+    "go",
+    "css",
+    "html",
+    "javascript",
+    "typescript",
+    "tsx",
+    "svelte",
+    "vue",
+    "jsdoc",
+    "json",
+    "jsonc",
+    "c",
+    "cpp",
+    "lua",
+    "java",
+    "toml",
+    "rust",
+    "yaml",
+    "php",
+    "phpdoc",
+    "rust",
+  },
+  sync_install = false, -- change to true in devices with low-tier hardware
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled
@@ -15,6 +37,62 @@ configs.setup {
   indent = {
     enable = true,
     disable = { "yaml" },
+  },
+  -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+    -- show textobject surrounding definition
+    lsp_interop = {
+      enable = true,
+      border = 'none',
+      peek_definition_code = {
+        ["<leader>df"] = "@function.outer",
+        ["<leader>dF"] = "@class.outer",
+      },
+    },
+    -- swap the node under the cursor with next/previous one
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>a"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>A"] = "@parameter.inner",
+      },
+    },
   },
   rainbow = {
     enable = true,

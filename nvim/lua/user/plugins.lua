@@ -101,8 +101,9 @@ return packer.startup(function(use)
 
   use {
     "nvim-treesitter/nvim-treesitter",
-    -- run = ":TSUpdate",
+    run = ":TSUpdate",
   }
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use "windwp/nvim-ts-autotag"
   use "p00f/nvim-ts-rainbow"
