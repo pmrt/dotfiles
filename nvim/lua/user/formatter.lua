@@ -1,4 +1,7 @@
-local fmt = require 'formatter'
+local ok, fmt = pcall(require, 'formatter')
+if not ok then
+  return
+end
 
 local prettier = function()
  return {
