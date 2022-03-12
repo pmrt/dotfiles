@@ -1,9 +1,10 @@
+pcall(require, "impatient")
+
 require "user.options"
 require "user.keybindings"
-require "user.plugins"
 
+require "user.plugins"
 -- require "user.cmp"
-require "impatient"
 require "user.coq_nvim"
 require "user.lsp"
 require "user.formatter"

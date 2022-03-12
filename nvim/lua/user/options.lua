@@ -53,9 +53,12 @@ vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 2 -- number of spaces for indentation
 vim.opt.tabstop = 2 -- number of spaces for a tab
 
+-- Performance related
+vim.opt.synmaxcol = 90
+
 -- Extra and plugins 
 -- Filetype.nvim for better performance
--- vim.g.did_load_filetypes = 1 -- Do not source the default filetype.vim (not required >nvim 0.6.0)
+vim.g.did_load_filetypes = 1 -- Do not source the default filetype.vim (not required >nvim 0.6.0)
 
 vim.api.nvim_exec(
   [[

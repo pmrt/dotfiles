@@ -79,7 +79,7 @@ return packer.startup(function(use)
 
   use 'ggandor/lightspeed.nvim'
 
-  use "akinsho/toggleterm.nvim"
+  -- use "akinsho/toggleterm.nvim"
 
   use "mfussenegger/nvim-dap"
 
