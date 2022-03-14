@@ -26,3 +26,4 @@ nvim/plugin/packer_compiled.lua
 twitch-cli/*
 
 nvim/lua/user/alpha.lua
+nvim/lua/compiled.lua

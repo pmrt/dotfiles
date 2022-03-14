@@ -1,23 +1,18 @@
-pcall(require, "impatient")
 
-require "user.options"
-require "user.keybindings"
+local needed_version = 'nvim-0.7'
 
-require "user.plugins"
--- require "user.cmp"
-require "user.coq_nvim"
-require "user.lsp"
-require "user.formatter"
--- require "user.lsp.null-ls"
-require "user.treesitter"
-require "user.telescope"
-require "user.nvim_tree"
-require "user.alpha"
-require "user.colorizer"
-require "user.comment"
-require "user.autopairs"
-require "user.toggleterm"
-require "user.gitsigns"
-require "user.project"
-require "user.catppuccin"
-require "user.nvim-dap"
+if vim.fn.has(needed_version) == 0 then
+  error('This config requires neovim version: ' .. needed_version)
+end
+
+do
+  local ok, _ = pcall(require, 'impatient')
+  if not ok then
+    vim.notify('Missing impatient', vim.log.levels.WARN)
+  end
+end
+
+local ok, err = pcall(require, 'core')
+if not ok then
+  error(('Error loading core\n\n%s'):format(err))
+end
