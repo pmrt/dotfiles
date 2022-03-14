@@ -17,7 +17,6 @@ end
 local js_filetypes = { "javascript", "javascriptreact", "svelte", "typescript", "typescriptreact" }
 
 plugin.setup({
-  debug = true,
   sources = {
     plugin.builtins.diagnostics.eslint_d.with({
       condition = has_eslint,
@@ -28,7 +27,7 @@ plugin.setup({
       filetypes = js_filetypes
     }),
     -- TODO report svelte plugin not working issue here https://github.com/fsouza/prettierd/issues/169
-    plugin.builtins.formatting.prettier.with({
+    plugin.builtins.formatting.prettierd.with({
       condition = has_prettier,
       env = {
         PRETTIERD_LOCAL_PRETTIER_ONLY = 1,
