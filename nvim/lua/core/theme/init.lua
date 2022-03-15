@@ -2,6 +2,7 @@ local M = {}
 
 M.supported = {
   'catppuccin',
+  'inspired-github',
 }
 
 function M.init(use, theme)
@@ -9,8 +10,8 @@ function M.init(use, theme)
     'catppuccin/nvim',
     as = 'catppuccin',
     config = function()
-      local theme = require('catppuccin')
-      theme.setup({
+      local catppuccin = require('catppuccin')
+      catppuccin.setup({
           transparent_background = false,
           term_colors = false,
           styles = {
@@ -70,6 +71,15 @@ function M.init(use, theme)
       vim.cmd('colorscheme catppuccin')
     end,
     disable = theme ~= 'catppuccin',
+  })
+
+  use({
+    'mvpopuk/inspired-github.vim',
+    as = 'inspired-github',
+    config = function ()
+      vim.cmd('colorscheme inspired-github')
+    end,
+    disable = theme ~= 'inspired-github',
   })
 end
 
