@@ -37,28 +37,26 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
-    family: Hack Nerd Font
+    family: RobotoMono Nerd Font
     style: Regular
   bold:
-    family: Hack Nerd Font Mono
+    family: RobotoMono Nerd Font
     style: Bold
   italic:
-    family: Hack Nerd Font Mono
+    family: RobotoMono Nerd Font
     style: Italic
   bold_italic:
-    family: Hack Nerd Font Mono
+    family: RobotoMono Nerd Font
     style: Bold Italic
-  size: 14
+  size: 15
 
   offset:
     # letter spacing
-    x: 1
-    # line spacing
-    y: 5
-
-  glyph_offset:
     x: 0
-    y: 2
+    # line spacing
+    y: 4
+
+  use_thin_strokes: false
 
 # Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
 # Copyright (c) 2017-present Sven Greb <code@svengreb.de>
