@@ -12,3 +12,4 @@ alias nvc="cd ~/.config/nvim && nvim"
 # Exports
 export GO111MODULE=on
 export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR=nvim
