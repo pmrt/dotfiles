@@ -1,3 +1,16 @@
+export TYPEWRITTEN_SYMBOL="λ"
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+bindkey '^R' history-incremental-search-backward
+bindkey -v
+
+plugins=(zsh-fzf-history-search)
+# Set typewritten ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt typewritten
+
 alias tm="tmux new -s $1"
 alias tma="tmux attach -t $1"
 alias sv="mosh pj@116.203.104.224"
