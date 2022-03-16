@@ -14,7 +14,3 @@ if vim.tbl_isempty(colors) then
 end
 
 return colors
-
-
-
-

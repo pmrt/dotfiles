@@ -19,4 +19,13 @@ return {
   warn = theme.red,
   floatBorder = theme.black4,
   selection_caret = theme.maroon,
+  rainbow = {
+    "#eb6f92",
+    "#f6c177",
+    "#ebbcba",
+    "#31748f",
+    "#9ccfd8",
+    "#c4a7e7",
+    "#e0def4",
+  }
 }

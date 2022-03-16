@@ -6,11 +6,11 @@ local colors = {
   white = pallet.fg2,
   bg = pallet.bg1,
   bg_highlight = pallet.bg2,
-  normal = pallet.blue,
-  insert = pallet.cyan,
-  command = pallet.orange,
-  visual = pallet.magenta,
-  replace = pallet.red,
+  normal = pallet.blue.base,
+  insert = pallet.cyan.base,
+  command = pallet.orange.base,
+  visual = pallet.magenta.base,
+  replace = pallet.red.base,
   diffAdd = spec.diff.add,
   diffModified = spec.diff.change,
   diffDeleted = spec.diff.delete,
@@ -21,6 +21,15 @@ local colors = {
   warn = spec.diag.warn,
   floatBorder = pallet.fg3,
   selection_caret = pallet.sel1,
+  rainbow = {
+    pallet.blue.base,
+    pallet.orange.base,
+    pallet.yellow.base,
+    pallet.red.base,
+    pallet.cyan.base,
+    pallet.pink.base,
+    pallet.magenta.base,
+  }
 }
 
 return colors

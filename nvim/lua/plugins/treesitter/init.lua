@@ -1,4 +1,5 @@
 local plugin = require('nvim-treesitter.configs')
+local colors = require('core.theme.colors')
 local config = require('config')
 local Logger = require('logger')
 
@@ -82,15 +83,7 @@ plugin.setup({
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    colors = {
-      "#eb6f92",
-      "#f6c177",
-      "#ebbcba",
-      "#31748f",
-      "#9ccfd8",
-      "#c4a7e7",
-      "#e0def4",
-    }, -- table of hex strings
+    colors = colors.rainbow, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
   },
   autotag = {
