@@ -18,6 +18,8 @@ map('n', '˚', ':resize +2<CR>') -- alt+k
 map('n', '∆', ':resize +2<CR>') -- alt+j
 -- Remove hls
 map('n', '<leader>h', ':nohls<CR>')
+-- Easy rotate windows
+map('n', '<leader>r', ':wincmd r<CR>')
 
 -- Editing
 -- Duplicate current line
