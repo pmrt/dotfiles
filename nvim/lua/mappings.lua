@@ -12,8 +12,8 @@ map('v', '>', '>gv')
 map('n', 'n', 'nzz')
 map('n', 'N', 'Nzz')
 -- Resizing
-map('n', '˙', ':vertical resize -2<CR>') -- alt+h
-map('n', '¬', ':vertical resize +2<CR>') -- alt+l
+map('n', '˙', ':vertical resize +2<CR>') -- alt+h
+map('n', '¬', ':vertical resize -2<CR>') -- alt+l
 map('n', '˚', ':resize +2<CR>') -- alt+k
 map('n', '∆', ':resize +2<CR>') -- alt+j
 -- Remove hls
