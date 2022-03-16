@@ -3,6 +3,7 @@ local M = {}
 M.supported = {
   'catppuccin',
   'inspired-github',
+  'nightfox',
 }
 
 function M.init(use, theme)
@@ -80,6 +81,17 @@ function M.init(use, theme)
       vim.cmd('colorscheme inspired-github')
     end,
     disable = theme ~= 'inspired-github',
+  })
+
+
+  use({
+    'EdenEast/nightfox.nvim',
+    as = 'nightfox',
+    config = function()
+      require('nightfox').setup({})
+      vim.cmd('colorscheme dawnfox')
+    end,
+    disable = theme ~= 'nightfox',
   })
 end
 

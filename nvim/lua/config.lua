@@ -1,6 +1,6 @@
 return {
   -- Themes: catppuccin, inspired-github
-  theme = 'inspired-github',
+  theme = 'nightfox',
   border = 'rounded',
   lsp = {
     format_on_save = true,
@@ -55,6 +55,6 @@ return {
   },
   logger = {
     title = 'Neovim',
-    timeout = 1000,
+    timeout = 500,
   }
 }
