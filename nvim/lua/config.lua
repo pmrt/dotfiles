@@ -11,7 +11,6 @@ return {
       "tsserver",
       "volar", -- vuew
       "rust_analyzer",
-      "eslint",
       "gopls",
       "html",
       "jsonls",
