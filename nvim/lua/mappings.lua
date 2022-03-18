@@ -52,3 +52,6 @@ map("n", "<leader>qq", ":copen<cr>")
 map("n", "<leader>ql", ":lopen<cr>")
 -- Make
 map("n", "<leader>m", "<cmd>make<cr>")
+
+-- Fix links if netrw is disabled
+map('n', 'gx', ':execute "!open " . shellescape(expand("<cfile>"), 1)<CR>')
