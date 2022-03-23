@@ -30,7 +30,8 @@ installer.on_server_ready(function(sv)
     custom_opts = {}
   end
 
-  local opts = utils.merge(default_opts, custom_opts)
+  -- TODO Change default_opts name. As it overrides custom_opts
+  local opts = utils.merge(custom_opts, default_opts)
   sv:setup(opts)
 end)
 
