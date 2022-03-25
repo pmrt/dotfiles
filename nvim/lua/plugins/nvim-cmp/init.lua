@@ -64,7 +64,14 @@ plugin.setup({
   sources = plugin.config.sources({
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
-    { name = 'buffer' },
+    {
+      name = 'buffer',
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end
+      }
+    },
     { name = 'luasnip' },
     { name = 'path' },
   }),
