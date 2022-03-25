@@ -1,7 +1,5 @@
 local config = require('config')
 
-local auto_format_lock = false
-
 -- Base lsp options
 local M = {}
 
@@ -31,8 +29,7 @@ function M.on_attach(client, bufnr)
   local do_format = false
   if opts.format then
     do_format = true
-    if config.lsp.format_on_save and not auto_format_lock then
-      auto_format_lock = true -- run once
+    if config.lsp.format_on_save then
       vim.cmd [[
       augroup LspFormatOnSaveGroup
           autocmd! * <buffer>
