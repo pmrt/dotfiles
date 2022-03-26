@@ -27,6 +27,18 @@ plugin.setup({
       behavior = plugin.ConfirmBehavior.Insert,
       select = true,
     }),
+    ['<C-l>'] = plugin.mapping(function(fallback)
+      luasnip.jump(1)
+    end, {
+      'i',
+      's',
+    }),
+    ['<C-h>'] = plugin.mapping(function(fallback)
+      luasnip.jump(-1)
+    end, {
+      'i',
+      's',
+    }),
     ['<Tab>'] = plugin.mapping(function(fallback)
       if plugin.visible() then
         plugin.select_next_item()
