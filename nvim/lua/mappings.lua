@@ -24,8 +24,12 @@ map('n', '<leader>r', ':wincmd r<CR>')
 -- Editing
 -- Duplicate current line
 map("n", "P", ":co.<CR>")
+-- Paste in the next line with a blank line of sep
+map("n", "π", "o<Esc>pk^")
+
 -- Quick save and quit
 map('n', '<C-w>', ':w<CR>')
+
 map('i', '<C-w>', '<Esc>:w<CR>i<Right>')
 map('n', '<C-q>', '<Esc>:wqa<CR>')
 map('i', '<C-q>', '<Esc>:wqa<CR>')
