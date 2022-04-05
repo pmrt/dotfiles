@@ -3,7 +3,7 @@ local opts = {
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
-    }
+    },
   },
   setup = {
     commands = {
@@ -14,6 +14,9 @@ local opts = {
       },
     },
   },
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.completion = true
+  end
 }
 
 return opts

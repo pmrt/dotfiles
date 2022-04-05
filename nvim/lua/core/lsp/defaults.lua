@@ -1,4 +1,5 @@
 local config = require('config')
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- Base lsp options
 local M = {}
@@ -6,7 +7,9 @@ local M = {}
 M.flags = {
   debounce_text_changes = 150,
 }
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = cmp_nvim_lsp.update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 M.root_dir = function(fname)
   local util = require('lspconfig').util
   return util.root_pattern('.git')(fname)
