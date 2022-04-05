@@ -57,6 +57,7 @@ return packer.startup(function()
     config = function()
       require('plugins.cosmic-ui')
     end,
+    disabled = true
   })
   use({
     'lukas-reineke/lsp-format.nvim',
