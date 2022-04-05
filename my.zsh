@@ -19,7 +19,10 @@ alias lg="lazygit"
 alias pubip="curl ifconfig.co"
 
 # Projects
-alias nv1="cd ~/Documents/Projects/rcap.tv/rcap && nvim"
+alias nv1="cd ~/Desktop/github.com/hammertrack/tracker && nvim"
+alias nv2="cd ~/Desktop/github.com/hammertrack/webserver && nvim"
+alias nv3="cd ~/Desktop/github.com/hammertrack/api && nvim"
+alias nv4="cd ~/Desktop/github.com/hammertrack/hammertrack.com && nvim"
 alias nvc="cd ~/.config/nvim && nvim"
 
 # Exports
