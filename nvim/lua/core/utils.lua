@@ -11,6 +11,17 @@ function M.merge_list(tbl1, tbl2)
   return tbl1
 end
 
+function M.merge_list_copy(tbl1, tbl2)
+  local ret = {}
+  for i, v in ipairs(tbl1) do
+    table.insert(ret, v)
+  end
+  for i, v in ipairs(tbl2) do
+    table.insert(ret, v)
+  end
+  return ret
+end
+
 function M.map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then

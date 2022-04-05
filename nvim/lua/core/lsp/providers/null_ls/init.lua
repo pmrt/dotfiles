@@ -1,5 +1,5 @@
 local plugin = require('null-ls')
-local merge_list = require('core.utils').merge_list
+local merge_list_copy = require('core.utils').merge_list_copy
 
 -- conditions
 local function has_eslint(utils)
@@ -32,21 +32,21 @@ plugin.setup({
       env = {
         PRETTIERD_LOCAL_PRETTIER_ONLY = 1,
       },
-      filetypes = merge_list(
+      filetypes = merge_list_copy(
         js_filetypes, { "html" }
       ),
     })
   },
   on_attach = function(client, bufnr)
     if client.resolved_capabilities.document_formatting then
-      require('lsp-format').on_attach(client, bufnr)
+      -- require('lsp-format').on_attach(client, bufnr)
       require('core.lsp.mappings').on_attach(client, bufnr)
-        -- vim.cmd([[
-        -- augroup NulllsFormatingGroup
-        --     autocmd! * <buffer>
-        --     autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-        -- augroup END
-        -- ]])
+        vim.cmd([[
+          augroup NulllsFormatingGroup
+              autocmd! * <buffer>
+              autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
+          augroup END
+        ]])
     end
     -- custom actions for null-ls
     -- require('core.lsp.defaults').on_attach(client, bufnr)

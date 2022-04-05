@@ -1,10 +1,13 @@
 local opts = {
   format = false,
+  filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+  -- init_options = {
+  --   logVerbosity = 'verbose',
+  -- },
   on_attach = function (client, bufnr)
     -- ts_utils
     local ts_utils = require('nvim-lsp-ts-utils')
     ts_utils.setup({
-      debug = false,
       disable_commands = false,
       enable_import_on_completion = true,
 
