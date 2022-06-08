@@ -27,3 +27,7 @@ twitch-cli/*
 
 nvim/lua/user/alpha.lua
 nvim/lua/compiled.lua
+nvim/node_modules
+deps.sh.save
+deps.sh.save.1
+nvim/package-lock.json
