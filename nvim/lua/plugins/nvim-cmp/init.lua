@@ -108,13 +108,13 @@ plugin.setup.cmdline('/', {
     { name = 'buffer' },
   }
 })
-plugin.setup.cmdline(':', {
-  sources = plugin.config.sources({
-  { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-    })
-})
+-- plugin.setup.cmdline(':', {
+--   sources = plugin.config.sources({
+--   { name = 'path' }
+--   }, {
+--     { name = 'cmdline' }
+--     })
+-- })
 
 vim.cmd([[
   augroup DisableCmpOnTelescopeGroup
