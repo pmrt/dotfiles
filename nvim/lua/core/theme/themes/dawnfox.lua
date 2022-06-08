@@ -1,5 +1,5 @@
 local variant = 'dawnfox'
-local pallet = require('nightfox.pallet').load(variant)
+local pallet = require('nightfox.palette').load(variant)
 local spec = require('nightfox.spec').load(variant)
 
 local colors = {
