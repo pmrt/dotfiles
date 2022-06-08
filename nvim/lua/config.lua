@@ -48,7 +48,6 @@ return {
       "rust",
       "yaml",
       "php",
-      "phpdoc",
       "rust",
     }
   },
