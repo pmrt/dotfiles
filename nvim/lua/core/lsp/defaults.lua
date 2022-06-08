@@ -13,10 +13,10 @@ M.capabilities = cmp_nvim_lsp.update_capabilities(
 M.root_dir = function(fname)
   local util = require('lspconfig').util
   return util.root_pattern('.git')(fname)
-    or util.root_pattern('tsconfig.base.json')(fname)
-    or util.root_pattern('package.json')(fname)
-    or util.root_pattern('.eslintrc.js')(fname)
-    or util.root_pattern('tsconfig.json')(fname)
+      or util.root_pattern('tsconfig.base.json')(fname)
+      or util.root_pattern('package.json')(fname)
+      or util.root_pattern('.eslintrc.js')(fname)
+      or util.root_pattern('tsconfig.json')(fname)
 end
 M.autostart = true
 M.single_file_mode = true
@@ -36,13 +36,13 @@ function M.on_attach(client, bufnr)
       vim.cmd [[
       augroup LspFormatOnSaveGroup
           autocmd! * <buffer>
-          autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 800)
+          autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 800 })
       augroup END
       ]]
     end
   end
-  client.resolved_capabilities.document_formatting = do_format
-  client.resolved_capabilities.document_range_formatting = do_format
+  client.server_capabilities.documentFormattingProvider = do_format
+  client.server_capabilities.documentRangeFormattingProvider = do_format
 
   -- mappings
   require('core.lsp.mappings').on_attach(client, bufnr)
