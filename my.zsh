@@ -19,9 +19,10 @@ alias lg="lazygit"
 alias pubip="curl ifconfig.co"
 
 # Projects
-alias nv1="cd ~/Desktop/tangente && nvim"
-alias nvc="cd ~/.config/nvim && nvim"
-alias cam="ffplay rtsp://192.168.1.246:8554/stream1 -vf \"setpts=N/30\" -fflags nobuffer -flags low_delay -framedrop"
+source ~/.config/alias.zsh
+#alias nv1="cd ~/Desktop/tangente && nvim"
+#alias nvc="cd ~/.config/nvim && nvim"
+#alias cam="ffplay rtsp://192.168.1.246:8554/stream1 -vf \"setpts=N/30\" -fflags nobuffer -flags low_delay -framedrop"
 
 # Exports
 export GO111MODULE=on
