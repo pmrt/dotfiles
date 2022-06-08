@@ -8,7 +8,7 @@ bindkey -v
 
 plugins=(zsh-fzf-history-search)
 # Set typewritten ZSH as a prompt
-autoload -U promptinit; promptinit
+autoload -Uz promptinit; promptinit
 prompt typewritten
 
 alias tm="tmux new -s $1"
@@ -29,3 +29,14 @@ alias nvc="cd ~/.config/nvim && nvim"
 export GO111MODULE=on
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=nvim
+
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/snap/bin
+export PATH="~/python/bin:${PATH}"
+export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/.config/nvim/bin:$PATH
+#export PATH=/usr/local/bin:$PATH
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!yarn.lock' -g '!node_modules/*' -g'!dist/*' -g '!.git/*'"
+export PATH=$HOME/.npm-global/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
