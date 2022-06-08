@@ -6,6 +6,21 @@ sudo apt install apt-transport-https ca-certificates curl gnupg2 software-proper
 curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh -o install_nvm.sh
 bash install_nvm.sh
 
+# zsh
+
+sudo apt-get install zsh
+chsh -s /bin/zsh 
+# zsh theme
+npm install -g typewritten
+# zinit (zsh plugin manager)
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+
+# install then https://github.com/joshskidmore/zsh-fzf-history-search
+
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 # Prettier
 npm install -g prettier
 npm install -g @fsouza/prettierd
@@ -39,9 +54,16 @@ sudo usermod -aG docker $USER
 su - ${USER}
 id -nG
 # docker-compose
-mkdir -p ~/.docker/cli-plugins/
-curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose-linux-x86_64
-chmod +x ~/.docker/cli-plugins/docker-compose
+#mkdir -p ~/.docker/cli-plugins/
+#curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose-linux-x86_64
+#chmod +x ~/.docker/cli-plugins/docker-compose
+
+# alt version
+# curl -fsSL https://get.docker.com -o get-docker.sh
+# sudo sh get-docker.sh
+# sudo usermod -aG docker $USER
+# su - ${USER}
+# id -nG
 
 # golang
 # gopls y debugger
