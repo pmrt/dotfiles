@@ -66,9 +66,8 @@ plugin.setup({
       's',
     }),
   },
-  documentation = {
-    border = config.border,
-    winhighlight = 'FloatBorder:FloatBorder,Normal:Normal',
+  window = {
+    documentation = plugin.config.window.bordered(),
   },
   experimental = {
     ghost_text = true,
@@ -110,10 +109,10 @@ plugin.setup.cmdline('/', {
 })
 plugin.setup.cmdline(':', {
   sources = plugin.config.sources({
-  { name = 'path' }
+    { name = 'path' }
   }, {
     { name = 'cmdline' }
-    })
+  })
 })
 
 vim.cmd([[
