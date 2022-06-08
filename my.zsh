@@ -19,11 +19,9 @@ alias lg="lazygit"
 alias pubip="curl ifconfig.co"
 
 # Projects
-alias nv1="cd ~/Desktop/github.com/hammertrack/tracker && nvim"
-alias nv2="cd ~/Desktop/github.com/hammertrack/webserver && nvim"
-alias nv3="cd ~/Desktop/github.com/hammertrack/api && nvim"
-alias nv4="cd ~/Desktop/github.com/hammertrack/hammertrack.com && nvim"
+alias nv1="cd ~/Desktop/tangente && nvim"
 alias nvc="cd ~/.config/nvim && nvim"
+alias cam="ffplay rtsp://192.168.1.246:8554/stream1 -vf \"setpts=N/30\" -fflags nobuffer -flags low_delay -framedrop"
 
 # Exports
 export GO111MODULE=on
