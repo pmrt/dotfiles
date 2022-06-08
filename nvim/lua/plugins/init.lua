@@ -14,6 +14,7 @@ return packer.startup(function()
   })
 -- setup theme
   require('core.theme').init(use, require('config').theme)
+
   -- setup notify
   use({
     'rcarriga/nvim-notify',

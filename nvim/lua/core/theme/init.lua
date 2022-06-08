@@ -4,6 +4,7 @@ M.supported = {
   'catppuccin',
   'inspired-github',
   'dawnfox',
+  'duskfox',
 }
 
 function M.init(use, theme)
@@ -88,10 +89,18 @@ function M.init(use, theme)
     'EdenEast/nightfox.nvim',
     as = 'dawnfox',
     config = function()
-      require('nightfox').setup({})
       vim.cmd('colorscheme dawnfox')
     end,
     disable = theme ~= 'dawnfox',
+  })
+
+  use({
+    'EdenEast/nightfox.nvim',
+    as = 'duskfox',
+    config = function()
+      vim.cmd('colorscheme duskfox')
+    end,
+    disable = theme ~= 'duskfox',
   })
 end
 

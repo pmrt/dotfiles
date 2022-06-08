@@ -1,4 +1,4 @@
-local variant = 'dawnfox'
+local variant = 'duskfox'
 local palette = require('nightfox.palette').load(variant)
 local spec = require('nightfox.spec').load(variant)
 
