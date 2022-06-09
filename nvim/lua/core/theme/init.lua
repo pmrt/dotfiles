@@ -5,6 +5,7 @@ M.supported = {
   'inspired-github',
   'dawnfox',
   'duskfox',
+  'rose-pine',
 }
 
 function M.init(use, theme)
@@ -101,6 +102,20 @@ function M.init(use, theme)
       vim.cmd('colorscheme duskfox')
     end,
     disable = theme ~= 'duskfox',
+  })
+
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    tag = 'v1.*',
+    config = function()
+      require('rose-pine').setup({
+        dark_variant = 'moon',
+        disable_italics = true,
+      })
+      vim.cmd('colorscheme rose-pine')
+    end,
+    disable = theme ~= 'rose-pine'
   })
 end
 

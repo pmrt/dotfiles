@@ -1,6 +1,6 @@
 return {
   -- Themes: catppuccin, inspired-github
-  theme = 'duskfox',
+  theme = 'rose-pine',
   border = 'rounded',
   lsp = {
     format_on_save = true,
