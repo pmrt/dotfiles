@@ -9,10 +9,14 @@ return {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["aC"] = "@class.outer",
+        ["iC"] = "@class.inner",
         ["ab"] = "@block.outer",
         ["ib"] = "@block.inner",
+        ["ac"] = "@conditional.outer",
+        ["ic"] = "@conditional.inner",
+        ["al"] = "@loop.outer",
+        ["il"] = "@loop.inner",
       },
     },
     lsp_interop = {
