@@ -70,4 +70,16 @@ M.nvimtree = {
   },
 }
 
+M.lspconfig = {
+  n = {
+      ["]d"] = {
+         function()
+            vim.diagnostic.goto_next()
+         end,
+         "   goto_next",
+      },
+
+  }
+}
+
 return M
