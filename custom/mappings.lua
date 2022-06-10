@@ -23,7 +23,7 @@ M.general = {
     ["P"] = {"<Cmd>co. <CR>", "Duplicate line"},
     -- Quickfix
     ["]q"] = {"<Cmd>cnext <CR>zz", "Next item in quickfix"},
-    ["[q"] = {"<Cmd>cnext <CR>zz", "Prev item in quickfix"},
+    ["[q"] = {"<Cmd>cprev <CR>zz", "Prev item in quickfix"},
     ["<leader>qc"] = {"<Cmd>ccl <CR>", "Close quickfix"},
     ["<leader>qlc"] = {"<Cmd>lcl <CR>", "Close local quickfix"},
     ["<leader>qq"] = {"<Cmd>copen <CR>", "Open quickfix"},
