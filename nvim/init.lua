@@ -1,18 +1,23 @@
+local present, impatient = pcall(require, "impatient")
 
-local needed_version = 'nvim-0.7'
-
-if vim.fn.has(needed_version) == 0 then
-  error('This config requires neovim version: ' .. needed_version)
+if present then
+   impatient.enable_profile()
 end
 
-do
-  local ok, _ = pcall(require, 'impatient')
-  if not ok then
-    vim.notify('Missing impatient', vim.log.levels.WARN)
-  end
-end
+require "core"
+require "core.utils"
+require "core.options"
 
-local ok, err = pcall(require, 'core')
-if not ok then
-  error(('Error loading core\n\n%s'):format(err))
+vim.defer_fn(function()
+   require("core.utils").load_mappings()
+end, 0)
+
+-- setup packer + plugins
+require("core.packer").bootstrap()
+require "plugins"
+
+local user_conf, _ = pcall(require, "custom")
+
+if user_conf then
+   require "custom"
 end
