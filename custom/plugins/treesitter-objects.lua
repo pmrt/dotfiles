@@ -13,6 +13,14 @@ return {
         ["ic"] = "@class.inner",
       },
     },
+    lsp_interop = {
+      enable = true,
+      border = 'rounded',
+      peek_definition_code = {
+        ["<leader>df"] = "@function.outer",
+        ["<leader>dF"] = "@class.outer",
+      },
+    },
     swap = {
       enable = true,
       swap_next = {
