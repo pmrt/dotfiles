@@ -11,6 +11,8 @@ return {
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
       },
     },
     lsp_interop = {
@@ -35,6 +37,8 @@ return {
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
         ["]m"] = "@function.outer",
+        ["]l"] = "@loop.outer",
+        ["]c"] = "@conditional.outer",
         ["]]"] = "@class.outer",
       },
       goto_next_end = {
@@ -43,6 +47,8 @@ return {
       },
       goto_previous_start = {
         ["[m"] = "@function.outer",
+        ["[c"] = "@conditional.outer",
+        ["[l"] = "@loop.outer",
         ["[["] = "@class.outer",
       },
       goto_previous_end = {
