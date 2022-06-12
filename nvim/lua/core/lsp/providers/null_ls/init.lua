@@ -39,7 +39,6 @@ plugin.setup({
   },
   on_attach = function(client, bufnr)
     if client.resolved_capabilities.document_formatting then
-      -- require('lsp-format').on_attach(client, bufnr)
       require('core.lsp.mappings').on_attach(client, bufnr)
         vim.cmd([[
           augroup NulllsFormatingGroup
