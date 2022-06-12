@@ -12,7 +12,7 @@ return packer.startup(function()
     'nvim-lua/popup.nvim',
     'nvim-lua/plenary.nvim',
   })
--- setup theme
+  -- setup theme
   require('core.theme').init(use, require('config').theme)
 
   -- setup notify
@@ -33,16 +33,16 @@ return packer.startup(function()
   --   end,
   --   after = cfg.theme,
   -- })
+  --
+  -- use({
+  --   'ahmedkhalf/project.nvim',
+  --   config = function()
+  --     require('plugins.project')
+  --   end,
+  -- })
 
   use({
-    'ahmedkhalf/project.nvim',
-    config = function()
-      require('plugins.project')
-    end,
-  })
-
-  use({
-   'numToStr/Comment.nvim',
+    'numToStr/Comment.nvim',
     config = function()
       require('plugins.comment')
     end,
@@ -50,19 +50,6 @@ return packer.startup(function()
   })
 
   -- LSP
-  use({
-    'CosmicNvim/cosmic-ui',
-    requires = {
-      'MunifTanjim/nui.nvim',
-    },
-    config = function()
-      require('plugins.cosmic-ui')
-    end,
-    disabled = true
-  })
-  use({
-    'lukas-reineke/lsp-format.nvim',
-  })
   use({
     'neovim/nvim-lspconfig',
     config = function()
@@ -78,9 +65,10 @@ return packer.startup(function()
           require('core.lsp.providers.null_ls')
         end,
         after = 'nvim-lspconfig',
-        },
+      },
       {
         'ray-x/lsp_signature.nvim',
+        event = { 'InsertEnter' },
         config = function()
           require('plugins.lsp_signature')
         end,
@@ -91,17 +79,31 @@ return packer.startup(function()
 
   use({
     'nvim-treesitter/nvim-treesitter',
+    event = { 'BufRead', 'BufNewFile' },
     run = ':TSUpdate',
     config = function()
       require('plugins.treesitter')
     end,
-    requires = {
-      'windwp/nvim-ts-autotag',
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      'nvim-treesitter/nvim-treesitter-refactor',
-      'p00f/nvim-ts-rainbow',
-    }
+  })
+  use({
+    'windwp/nvim-ts-autotag',
+    event = { 'BufRead', 'BufNewFile' },
+  })
+  use({
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    event = { 'BufRead', 'BufNewFile' },
+  })
+  use({
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    event = { 'BufRead', 'BufNewFile' },
+  })
+  use({
+    'nvim-treesitter/nvim-treesitter-refactor',
+    event = { 'BufRead', 'BufNewFile' },
+  })
+  use({
+    'p00f/nvim-ts-rainbow',
+    event = { 'BufRead', 'BufNewFile' },
   })
 
   use({
@@ -112,11 +114,12 @@ return packer.startup(function()
     requires = {
       {
         'L3MON4D3/LuaSnip',
+        event = 'InsertEnter',
         config = function()
           require('plugins.luasnip')
         end,
         requires = {
-          'rafamadriz/friendly-snippets',
+          { 'rafamadriz/friendly-snippets', event = 'InsertEnter' },
         },
       },
       { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
@@ -126,6 +129,7 @@ return packer.startup(function()
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
       {
         'windwp/nvim-autopairs',
+        event = 'InsertEnter',
         config = function()
           require('plugins.autopairs')
         end,
@@ -137,6 +141,7 @@ return packer.startup(function()
 
   use({
     'ggandor/lightspeed.nvim',
+    event = 'InsertEnter',
   })
 
   use({
@@ -157,7 +162,7 @@ return packer.startup(function()
 
   use({
     'nvim-lualine/lualine.nvim',
-    config = function ()
+    config = function()
       require('plugins.lualine')
     end,
     requires = { 'kyazdani42/nvim-web-devicons' },
@@ -174,6 +179,7 @@ return packer.startup(function()
 
   use({
     'norcalli/nvim-colorizer.lua',
+    event = 'BufRead',
     config = function()
       require('plugins.colorizer')
     end,
@@ -186,6 +192,7 @@ return packer.startup(function()
 
   use({
     'kdheepak/lazygit.nvim',
+    event = 'InsertEnter',
     branch = 'main',
     config = function()
       require('core.utils').map('n', '<leader>g', ':LazyGit<CR>')
@@ -201,7 +208,7 @@ return packer.startup(function()
   })
 
   use({
-  'lewis6991/gitsigns.nvim',
+    'lewis6991/gitsigns.nvim',
     requires = {
       'nvim-lua/plenary.nvim'
     },
@@ -213,6 +220,7 @@ return packer.startup(function()
 
   use({
     'ojroques/vim-oscyank',
+    event = 'InsertEnter',
     config = function()
       require('plugins.vim-oscyank')
     end,
