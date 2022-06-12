@@ -28,7 +28,7 @@ o.scrolloff = 8 -- min. lines to keep above and below cursor
 -- o.scidescrolloff = 8 -- same as above, but horizontally
 o.showmode = false
 -- UI Behaviour
-o.relativenumber = true
+o.relativenumber = false
 o.mouse = 'a'
 o.lazyredraw = true -- no redraw when executing macros, register, etc.
 o.expandtab = true -- conver tabs to spaces
