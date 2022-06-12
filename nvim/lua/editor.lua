@@ -23,7 +23,7 @@ o.cursorline = true
 o.number = true
 o.splitbelow = true -- force horizontal splits to go below cursor
 o.splitright = true -- force horizontal splits to go to the right of the cursor
-o.signcolumn =  'yes'
+o.signcolumn = 'yes'
 o.scrolloff = 8 -- min. lines to keep above and below cursor
 -- o.scidescrolloff = 8 -- same as above, but horizontally
 o.showmode = false
@@ -39,7 +39,7 @@ o.shiftwidth = indent_size
 o.tabstop = indent_size
 o.wrap = false
 o.termguicolors = true
-o.whichwrap:append('<','>','[',']','h','l')
+o.whichwrap:append('<', '>', '[', ']', 'h', 'l')
 o.fillchars:append('eob: ')
 o.laststatus = 3 -- statusline. 0=never, 1=>=2windows, 2=always 3=global
 o.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -55,7 +55,7 @@ o.timeoutlen = 250 -- timeout for key mapping combos
 o.ttimeoutlen = 10 -- timeout to wait for sequence to complete
 o.updatetime = 100 -- debounce for writing swap file to disk and cursorhold
 o.redrawtime = 1500
-o.synmaxcol = 90
+o.synmaxcol = 110
 
 cmd([[
   filetype plugin indent on
