@@ -102,6 +102,10 @@ return packer.startup(function()
     event = { 'BufRead', 'BufNewFile' },
   })
   use({
+    'nvim-treesitter/nvim-treesitter-context',
+    event = { 'BufRead', 'BufNewFile' },
+  })
+  use({
     'p00f/nvim-ts-rainbow',
     event = { 'BufRead', 'BufNewFile' },
   })
@@ -160,13 +164,13 @@ return packer.startup(function()
     event = 'BufWinEnter',
   })
 
-  use({
-    'nvim-lualine/lualine.nvim',
-    config = function()
-      require('plugins.lualine')
-    end,
-    requires = { 'kyazdani42/nvim-web-devicons' },
-  })
+  -- use({
+  --   'nvim-lualine/lualine.nvim',
+  --   config = function()
+  --     require('plugins.lualine')
+  --   end,
+  --   requires = { 'kyazdani42/nvim-web-devicons' },
+  -- })
 
   use({
     'kyazdani42/nvim-tree.lua',
