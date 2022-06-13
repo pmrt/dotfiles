@@ -295,9 +295,9 @@ return {
   BufferVisibleTarget = { fg = p.gold },
 
   -- lewis6991/gitsigns.nvim
-  GitSignsAdd = { fg = groups.git_add },
-  GitSignsChange = { fg = groups.git_change },
-  GitSignsDelete = { fg = groups.git_delete },
+  GitSignsAdd = { fg = groups.git_add, bg = groups.background },
+  GitSignsChange = { fg = groups.git_change, bg = groups.background },
+  GitSignsDelete = { fg = groups.git_delete, bg = groups.background },
   SignAdd = { link = 'GitSignsAdd' },
   SignChange = { link = 'GitSignsChange' },
   SignDelete = { link = 'GitSignsDelete' },
