@@ -88,7 +88,8 @@ plugin.setup({
       },
     },
   },
-  rainbow          = {
+
+  rainbow   = {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
@@ -96,14 +97,26 @@ plugin.setup({
     colors = colors.rainbow, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
   },
-  autotag          = {
+  context   = {
+    enable = true,
+    max_lines = 0,
+    patterns = {
+      default = {
+        'class',
+        'function',
+        'method',
+      }
+    },
+    zindex = 20,
+  },
+  autotag   = {
     enable = true,
     -- filetypes = { "html" , "xml" },
   },
-  autopairs        = {
+  autopairs = {
     enable = true,
   },
-  refactor         = {
+  refactor  = {
     highlight_definitions = {
       enable = true,
       clear_on_cursor_move = true,
