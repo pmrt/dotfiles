@@ -34,4 +34,3 @@ installer.on_server_ready(function(sv)
   local opts = utils.merge(custom_opts, default_opts)
   sv:setup(opts)
 end)
-
