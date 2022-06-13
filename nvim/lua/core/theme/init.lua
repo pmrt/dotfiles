@@ -107,7 +107,6 @@ function M.init(use, theme)
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
-    tag = 'v1.*',
     config = function()
       require('rose-pine').setup({
         highlight_groups = require('core.theme.themes.rose-pine.highlights'),
