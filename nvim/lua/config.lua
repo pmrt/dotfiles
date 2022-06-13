@@ -18,8 +18,6 @@ return {
       "zeta_note", -- md
       "intelephense", -- php
       "pyright", -- python
-      "sqls",
-      "sqls",
       "yamlls", -- yaml
       "lemminx", -- xml
     },
