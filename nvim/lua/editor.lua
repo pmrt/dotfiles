@@ -41,7 +41,7 @@ o.wrap = false
 o.termguicolors = true
 o.whichwrap:append('<', '>', '[', ']', 'h', 'l')
 o.fillchars:append('eob: ')
-o.laststatus = 3 -- statusline. 0=never, 1=>=2windows, 2=always 3=global
+o.laststatus = 0 -- statusline. 0=never, 1=>=2windows, 2=always 3=global
 o.completeopt = { 'menu', 'menuone', 'noselect' }
 o.shortmess = o.shortmess + { c = true }
 -- UI sizes
