@@ -35,14 +35,15 @@ packer.init({
     clone_timeout = 800,
   },
   compile_path = vim.fn.stdpath('config') .. '/lua/compiled.lua',
+  snapshot_path = vim.fn.stdpath('config') .. '/snapshots',
   auto_clean = true,
   compile_on_sync = true,
+  -- Packer logs are very important to me as they are the entry point for fixing
+  -- plugins
+  log = { level = 'debug' },
 })
 
 return {
   packer = packer,
   first_install = first_install,
 }
-
-
-
