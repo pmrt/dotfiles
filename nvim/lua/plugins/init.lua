@@ -34,12 +34,12 @@ return packer.startup(function()
   --   after = cfg.theme,
   -- })
   --
-  -- use({
-  --   'ahmedkhalf/project.nvim',
-  --   config = function()
-  --     require('plugins.project')
-  --   end,
-  -- })
+  use({
+    'ahmedkhalf/project.nvim',
+    config = function()
+      require('plugins.project')
+    end,
+  })
 
   use({
     'numToStr/Comment.nvim',
