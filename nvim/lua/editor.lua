@@ -47,7 +47,7 @@ o.shortmess = o.shortmess + { c = true }
 -- UI sizes
 o.textwidth = 80 -- max col. size
 o.pumheight = 10 -- pop up menu height
-o.cmdheight = 1
+o.cmdheight = 0
 o.numberwidth = 4
 
 -- Performance
