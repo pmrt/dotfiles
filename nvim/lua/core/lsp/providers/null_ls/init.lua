@@ -4,18 +4,19 @@ local merge_list_copy = require('core.utils').merge_list_copy
 -- conditions
 local function has_eslint(utils)
   return utils.root_has_file('.eslintrc')
-    or utils.root_has_file('.eslintrc.json')
-    or utils.root_has_file('.eslintrc.js')
-    or utils.root_has_file('package.json')
+      or utils.root_has_file('.eslintrc.json')
+      or utils.root_has_file('.eslintrc.js')
+      or utils.root_has_file('package.json')
 end
 
 local function has_prettier(utils)
   return utils.root_has_file('.prettierrc.json')
-    or utils.root_has_file('.prettierrc.js')
+      or utils.root_has_file('.prettierrc.js')
 end
 
 local js_filetypes = { "javascript", "javascriptreact", "svelte", "typescript", "typescriptreact" }
 
+-- TODO - Change autocmd
 plugin.setup({
   sources = {
     plugin.builtins.diagnostics.eslint_d.with({
@@ -38,12 +39,12 @@ plugin.setup({
     })
   },
   on_attach = function(client, bufnr)
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
       require('core.lsp.mappings').on_attach(client, bufnr)
-        vim.cmd([[
+      vim.cmd([[
           augroup NulllsFormatingGroup
               autocmd! * <buffer>
-              autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
+              autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 800 })
           augroup END
         ]])
     end
