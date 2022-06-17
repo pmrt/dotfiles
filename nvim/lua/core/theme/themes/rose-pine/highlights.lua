@@ -342,7 +342,7 @@ return {
   WhichKeyValue = { fg = p.rose },
 
   -- luka-reineke/indent-blankline.nvim
-  IndentBlanklineChar = { fg = p.muted },
+  IndentBlanklineChar = { fg = p.highlight_low },
 
   -- hrsh7th/nvim-cmp
   CmpItemAbbr = { fg = p.subtle },
