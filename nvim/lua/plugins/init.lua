@@ -79,7 +79,6 @@ return packer.startup(function()
 
   use({
     'nvim-treesitter/nvim-treesitter',
-    event = { 'BufRead', 'BufNewFile' },
     run = ':TSUpdate',
     config = function()
       require('plugins.treesitter')
@@ -87,27 +86,21 @@ return packer.startup(function()
   })
   use({
     'windwp/nvim-ts-autotag',
-    event = { 'BufRead', 'BufNewFile' },
   })
   use({
     'JoosepAlviste/nvim-ts-context-commentstring',
-    event = { 'BufRead', 'BufNewFile' },
   })
   use({
     'nvim-treesitter/nvim-treesitter-textobjects',
-    event = { 'BufRead', 'BufNewFile' },
   })
   use({
     'nvim-treesitter/nvim-treesitter-refactor',
-    event = { 'BufRead', 'BufNewFile' },
   })
   use({
     'nvim-treesitter/nvim-treesitter-context',
-    event = { 'BufRead', 'BufNewFile' },
   })
   use({
     'p00f/nvim-ts-rainbow',
-    event = { 'BufRead', 'BufNewFile' },
   })
 
   use({
@@ -161,7 +154,6 @@ return packer.startup(function()
     config = function()
       require('plugins.telescope')
     end,
-    event = 'BufWinEnter',
   })
 
   -- use({
@@ -178,12 +170,10 @@ return packer.startup(function()
     config = function()
       require('plugins.nvim-tree')
     end,
-    event = 'BufWinEnter',
   })
 
   use({
     'norcalli/nvim-colorizer.lua',
-    event = 'BufRead',
     config = function()
       require('plugins.colorizer')
     end,
@@ -196,7 +186,6 @@ return packer.startup(function()
 
   use({
     'kdheepak/lazygit.nvim',
-    event = 'InsertEnter',
     branch = 'main',
     config = function()
       require('core.utils').map('n', '<leader>g', ':LazyGit<CR>')
@@ -219,12 +208,10 @@ return packer.startup(function()
     config = function()
       require('plugins.gitsigns')
     end,
-    event = 'BufRead',
   })
 
   use({
     'ojroques/vim-oscyank',
-    event = 'InsertEnter',
     config = function()
       require('plugins.vim-oscyank')
     end,
