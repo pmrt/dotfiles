@@ -61,5 +61,17 @@ map("n", "<leader>ql", ":lopen<cr>")
 -- Make
 map("n", "<leader>m", "<cmd>make<cr>")
 
+function _G.ToggleCmdline()
+  if vim.o.cmdheight == 1 then
+    vim.o.cmdheight = 0
+  else
+    vim.o.cmdheight = 1
+  end
+end
+
+map("n", "<leader>l", "<cmd>lua ToggleCmdline()<CR>")
+
 -- Fix links if netrw is disabled
 map('n', 'gx', ':execute "!open " . shellescape(expand("<cfile>"), 1)<CR>')
+
+--
