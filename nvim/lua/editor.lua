@@ -19,7 +19,7 @@ o.swapfile = false
 o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal'
 
 -- UI Elements
-o.cursorline = true
+o.cursorline = false
 o.number = true
 o.splitbelow = true -- force horizontal splits to go below cursor
 o.splitright = true -- force horizontal splits to go to the right of the cursor
