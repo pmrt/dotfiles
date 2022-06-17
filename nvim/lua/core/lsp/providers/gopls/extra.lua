@@ -10,10 +10,12 @@ function goimports(timeout_ms)
   -- See the implementation of the textDocument/codeAction callback
   -- (lua/vim/lsp/handler.lua) for how to do this properly.
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
-  print(vim.inspect(result[0]))
   -- if not result or next(result) == nil or table.getn(result) == 0 then return end
-  if not result then return end
-  if not result[1] then return end
+  -- if not result then return end
+  -- if not result[1] then return end
+  if not result or next(result) == nil then
+    return
+  end
   local actions = result[1].result
   if not actions then return end
   local action = actions[1]
@@ -36,15 +38,17 @@ end
 local M = {}
 
 -- Setup go imports and omnifunc
-M.setup = function ()
+-- autocmd BufWritePre *.go lua goimports(1000)
+M.setup = function()
   vim.api.nvim_exec(
-  [[
+    [[
+  command! GoImports lua goimports(500)
+
   augroup GoExtraGroup
     autocmd!
-    autocmd BufWritePre *.go lua goimports(1000)
     autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  augroup END 
-  ]], false)
+  augroup END
+  ]] , false)
 end
 
 return M
