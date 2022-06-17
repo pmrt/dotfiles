@@ -13,9 +13,13 @@ map('n', 'n', 'nzz')
 map('n', 'N', 'Nzz')
 -- Resizing
 map('n', '˙', ':vertical resize +2<CR>') -- alt+h
+map('n', '<A-h>', ':vertical resize +2<CR>') -- alt+h
 map('n', '¬', ':vertical resize -2<CR>') -- alt+l
-map('n', '˚', ':resize +2<CR>') -- alt+k
+map('n', '<A-l>', ':vertical resize -2<CR>') -- alt+l
+map('n', '˚', ':resize -2<CR>') -- alt+k
+map('n', '<A-k>', ':resize -2<CR>') -- alt+k
 map('n', '∆', ':resize +2<CR>') -- alt+j
+map('n', '<A-j>', ':resize +2<CR>') -- alt+j
 -- Remove hls
 map('n', '<leader>h', ':nohls<CR>')
 -- Easy rotate windows
@@ -44,8 +48,8 @@ map("n", "OO", "O<Esc>j")
 -- Move text up and down
 map("x", "J", ":move '>+1<CR>gv-gv")
 map("x", "K", ":move '<-2<CR>gv-gv")
-map("x", "<A-j>", ":move '>+1<CR>gv-gv")
-map("x", "<A-k>", ":move '<-2<CR>gv-gv")
+-- map("x", "<A-j>", ":move '>+1<CR>gv-gv")
+-- map("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
 -- Quickfix
 map("n", "]q", ":cnext<cr>zz")
