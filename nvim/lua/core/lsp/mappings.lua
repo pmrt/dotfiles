@@ -12,8 +12,8 @@ function M.on_attach(client, bufnr)
   map(bufnr, 'n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>')
 
   -- diagnostics
-  map(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<cr>')
-  map(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<cr>')
+  map(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<cr>zz')
+  map(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<cr>zz')
   map(bufnr, 'n', 'gl', '<cmd>lua vim.diagnostic.open_float(nil, { scope = "line", })<cr>')
   map(bufnr, 'n', '<leader>ge', '<cmd>Telescope diagnostics bufnr=0<cr>')
 
