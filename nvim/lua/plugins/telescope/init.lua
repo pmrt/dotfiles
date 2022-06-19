@@ -104,6 +104,10 @@ plugin.setup {
 plugin.load_extension('fzf')
 
 map('n', '<leader>ff', ':Telescope find_files<cr>')
-map('n', '<leader>fi', ':lua require("telescope.builtin").find_files({no_ignore = true,file_ignore_patterns={},prompt_title="Find files (including ignored)"})<cr>')
+map('n', '<leader>fa', ':Telescope find_files follow=true no_ignore=true hidden=true<cr>')
+map('n', '<leader>fc', ':Telescope git_commits<CR>')
+map('n', '<leader>fb', ':Telescope git_bcommits<CR>')
+map('n', '<leader>fh', ':Telescope help_tags <CR>')
 map('n', '<leader>fg', ':Telescope live_grep<cr>')
+map('n', '<leader>fo', ':Telescope oldfiles<cr>')
 map('n', '<leader>fs', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>')
