@@ -204,6 +204,20 @@ return packer.startup(function()
     end
   })
 
+  use {
+    event = "InsertEnter",
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-go",
+    },
+    config = function()
+      require("plugins.neotest")
+    end
+  }
+
   use({
     'lewis6991/gitsigns.nvim',
     requires = {

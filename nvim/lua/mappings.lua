@@ -59,6 +59,20 @@ map("n", "ì", "`i")
 map("n", "ò", "`o")
 map("n", "ù", "`u")
 
+-- neotest
+-- Run nearest test
+map("n", "<leader>tt", "<Cmd>lua require('neotest').run.run()<CR>")
+-- Run tests for current file
+map("n", "<leader>tf", "<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>")
+-- Open output
+map("n", "<leader>te", "<Cmd>lua require('neotest').output.open({enter=true})<CR>")
+-- Summary
+map("n", "<leader>ts", "<Cmd>lua require('neotest').summary.toggle()<CR>")
+
+-- Jumps between failed
+map("n", "[t", "<Cmd>lua require('neotest').jump.prev({ status = 'failed')<CR>")
+map("n", "]t", "<Cmd>lua require('neotest').jump.next({ status = 'failed')<CR>")
+
 -- Quickfix
 map("n", "]q", ":cnext<cr>zz")
 map("n", "[q", ":cprev<cr>zz")
