@@ -51,6 +51,14 @@ map("x", "K", ":move '<-2<CR>gv-gv")
 -- map("x", "<A-j>", ":move '>+1<CR>gv-gv")
 -- map("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
+-- Marks
+-- Go-to fix for keyboards layouts with accents
+map("n", "à", "`a")
+map("n", "è", "`e")
+map("n", "ì", "`i")
+map("n", "ò", "`o")
+map("n", "ù", "`u")
+
 -- Quickfix
 map("n", "]q", ":cnext<cr>zz")
 map("n", "[q", ":cprev<cr>zz")
