@@ -185,6 +185,9 @@ return packer.startup(function()
 
   use({
     'kylechui/nvim-surround',
+    config = function()
+      require('plugins.surround')
+    end,
     event = 'InsertEnter',
   })
 
