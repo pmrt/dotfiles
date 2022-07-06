@@ -184,7 +184,7 @@ return packer.startup(function()
   })
 
   use({
-    'tpope/vim-surround',
+    'kylechui/nvim-surround',
     event = 'InsertEnter',
   })
 
