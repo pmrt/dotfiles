@@ -83,6 +83,11 @@ map("n", "<leader>ql", ":lopen<cr>")
 -- Make
 map("n", "<leader>m", "<cmd>make<cr>")
 
+-- GTD
+map("n", "<leader>nv", ":Neorg gtd views<cr>")
+map("n", "<leader>ne", ":Neorg gtd edit<cr>")
+map("n", "<leader>nc", ":Neorg gtd capture<cr>")
+
 function _G.ToggleCmdline()
   if vim.o.cmdheight == 1 then
     vim.o.cmdheight = 0

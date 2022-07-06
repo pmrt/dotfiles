@@ -205,7 +205,7 @@ return packer.startup(function()
   })
 
   use {
-    event = "InsertEnter",
+    -- event = "InsertEnter",
     "nvim-neotest/neotest",
     requires = {
       "nvim-lua/plenary.nvim",
@@ -242,6 +242,17 @@ return packer.startup(function()
         -- bypass_session_save_file_types = { 'alpha' },
       })
     end
+  })
+
+  use({
+    'nvim-neorg/neorg',
+    -- tag = "latest",
+    ft = "norg",
+    after = "nvim-treesitter",
+    config = function()
+      require('plugins.neorg')
+    end,
+    requires = "nvim-lua/plenary.nvim"
   })
 
   if packer_obj.first_install then

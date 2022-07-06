@@ -47,6 +47,7 @@ return {
       "yaml",
       "php",
       "rust",
+      "norg",
     }
   },
   logger = {
