@@ -18,5 +18,3 @@ plugin.snippets.typescriptreact = plugin.snippets.html
 plugin.snippets.svelte = plugin.snippets.html
 
 require('luasnip.loaders.from_vscode').lazy_load()
-
-
