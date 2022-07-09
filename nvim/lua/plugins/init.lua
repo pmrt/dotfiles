@@ -258,6 +258,14 @@ return packer.startup(function()
     requires = "nvim-lua/plenary.nvim"
   })
 
+  use {
+    'akinsho/toggleterm.nvim',
+    tag = 'v1.*',
+    config = function()
+      require('plugins.toggleterm')
+    end,
+  }
+
   if packer_obj.first_install then
     packer.sync()
   end

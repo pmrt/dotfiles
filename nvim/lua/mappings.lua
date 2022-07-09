@@ -98,7 +98,40 @@ end
 
 map("n", "<leader>l", "<cmd>lua ToggleCmdline()<CR>")
 
+-- Toggleterm
+-- map("n", "<leader>/", "<cmd>ToggleTerm<CR>")
+-- map("t", "<leader>/", "<cmd>ToggleTerm<CR>")
+
+local ToggleTermGroup = vim.api.nvim_create_augroup('ToggleTermGroup', { clear = true })
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = 'term://*toggleterm#*',
+  callback = function()
+    map('t', '<esc>', [[<C-\><C-n>]])
+    map('t', 'jk', [[<C-\><C-n>]])
+    map('t', '<C-h>', [[<C-\><C-n><C-W>h]])
+    map('t', '<C-j>', [[<C-\><C-n><C-W>j]])
+    map('t', '<C-k>', [[<C-\><C-n><C-W>k]])
+    map('t', '<C-l>', [[<C-\><C-n><C-W>l]])
+    vim.opt.statusline = "%= T" .. vim.api.nvim_buf_get_var(0, 'toggle_number')
+    vim.opt.laststatus = 3
+  end,
+  group = ToggleTermGroup,
+})
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = 'term://*toggleterm#*',
+  callback = function()
+    vim.opt.statusline = "%= T" .. vim.api.nvim_buf_get_var(0, 'toggle_number')
+    vim.opt.laststatus = 3
+  end,
+  group = ToggleTermGroup,
+})
+vim.api.nvim_create_autocmd('BufLeave', {
+  pattern = 'term://*toggleterm#*',
+  callback = function()
+    vim.opt.laststatus = 0
+  end,
+  group = ToggleTermGroup,
+})
+
 -- Fix links if netrw is disabled
 map('n', 'gx', ':execute "!open " . shellescape(expand("<cfile>"), 1)<CR>')
-
---
