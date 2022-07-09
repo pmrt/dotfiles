@@ -21,6 +21,7 @@ o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,term
 -- UI Elements
 o.cursorline = false
 o.number = true
+o.ruler = false
 o.splitbelow = true -- force horizontal splits to go below cursor
 o.splitright = true -- force horizontal splits to go to the right of the cursor
 o.signcolumn = 'yes'
