@@ -38,3 +38,14 @@ surround.setup({
     duration = 0,
   }
 })
+
+local go = require('plugins.surround.go')
+
+local SurroundGroup = vim.api.nvim_create_augroup('SurroundGroup', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'go',
+  callback = function()
+    surround.buffer_setup(go)
+  end,
+  group = SurroundGroup,
+})
