@@ -3,6 +3,7 @@ local opts = {
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
     },
   },
   setup = {
@@ -14,9 +15,6 @@ local opts = {
       },
     },
   },
-  on_attach = function(client, bufnr)
-    client.resolved_capabilities.completion = true
-  end
 }
 
 return opts

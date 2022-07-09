@@ -56,7 +56,6 @@ return packer.startup(function()
       require('core.lsp')
     end,
     requires = {
-      { 'b0o/SchemaStore.nvim' },
       { 'williamboman/nvim-lsp-installer' },
       { 'jose-elias-alvarez/nvim-lsp-ts-utils' },
       {
@@ -66,15 +65,14 @@ return packer.startup(function()
         end,
         after = 'nvim-lspconfig',
       },
-      {
-        'ray-x/lsp_signature.nvim',
-        event = { 'InsertEnter' },
-        config = function()
-          require('plugins.lsp_signature')
-        end,
-        after = 'nvim-lspconfig',
-      },
     },
+  })
+  use 'b0o/SchemaStore.nvim'
+  use({
+    'ray-x/lsp_signature.nvim',
+    config = function()
+      require('plugins.lsp_signature')
+    end,
   })
 
   use({
