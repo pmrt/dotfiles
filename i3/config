@@ -282,8 +282,8 @@ exec --no-startup-id greenclip daemon
 # monitors
 exec --no-startup-id xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
 # audio output (LG 2D HD FULL)
-exec --no-startup-id pactl set-card-profile 41 output:hdmi-stereo-extra1
-#class
+exec --no-startup-id pactl set-card-profile alsa_card.pci-0000_01_00.1 output:hdmi-stereo-extra1
+# keyboard layout
 exec --no-startup-id setxkbmap -variant intl -layout us
 
 # Assign apps to workspaces
